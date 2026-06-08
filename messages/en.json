@@ -1,0 +1,45 @@
+{
+  "hero": {
+    "title": "BLACKGUARD",
+    "subtitle": "Elite Protection. Absolute Discretion.",
+    "description": "Trusted by executives, diplomats, and high-profile individuals worldwide.",
+    "cta_primary": "Request Protection",
+    "cta_secondary": "24/7 Hotline"
+  },
+
+  "trust": {
+    "items": [
+      "24/7 Operations",
+      "Global Coverage",
+      "Executive Protection",
+      "Rapid Deployment"
+    ]
+  },
+
+  "services": {
+    "title": "Security Services",
+    "items": [
+      "Executive Protection",
+      "Personal Bodyguards",
+      "Event Security",
+      "Residential Security",
+      "Secure Transport",
+      "Risk Assessment"
+    ]
+  },
+
+  "philosophy": {
+    "title": "Protection Is Not an Option — It Is a Standard",
+    "points": [
+      "Safety is engineered, not assumed",
+      "Power is presence, not noise",
+      "Discretion is our highest priority"
+    ]
+  },
+
+  "cta": {
+    "title": "Immediate Protection Required?",
+    "subtitle": "Our operations center is active 24/7",
+    "button": "Call Now"
+  }
+}
