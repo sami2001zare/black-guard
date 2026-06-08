@@ -1,16 +1,27 @@
-import { useTranslations } from "next-intl";
-
 export default function TrustStrip() {
-    const t = useTranslations("trust");
-    const items = t.raw("items");
+    const stats = [
+        { value: "15+", label: "Years of Service" },
+        { value: "98%", label: "Client Retention" },
+        { value: "< 3min", label: "Avg. Response" },
+        { value: "24/7", label: "Global Coverage" },
+    ];
 
     return (
-        <section className="bg-[#0F1A2F] py-6 border-y border-yellow-500/10">
-            <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 text-center text-gray-300 text-sm">
-                {items.map((item: string) => (
-                    <div key={item}>{item}</div>
-                ))}
+        <div className="bg-black border-b border-gray-800 py-5">
+            <div className="container mx-auto px-4">
+                <div className="flex flex-wrap justify-center md:justify-between gap-8">
+                    {stats.map((stat, idx) => (
+                        <div key={idx} className="text-center">
+                            <div className="text-3xl md:text-4xl font-black text-blue-500">
+                                {stat.value}
+                            </div>
+                            <div className="text-xs uppercase tracking-wider text-gray-400">
+                                {stat.label}
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
-        </section>
+        </div>
     );
 }

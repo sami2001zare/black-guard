@@ -1,19 +1,29 @@
 import Hero from "@/components/home/Hero";
 import TrustStrip from "@/components/home/TrustStrip";
 import ServicesGrid from "@/components/home/ServicesGrid";
-import Philosophy from "@/components/home/Philosophy";
-import EmergencyCTA from "@/components/home/EmergencyCTA";
-import MobileActionBar from "@/components/home/MobileActionBar";
+import CeremonialServices from "@/components/home/CeremonialServices";
+import TrainingSection from "@/components/home/TrainingSection";
+import Testimonials from "@/components/home/Testimonials";
+import TeamSection from "@/components/home/TeamSection";
+import ClientsSection from "@/components/home/ClientsSection";
+import ContactForm from "@/components/home/ContactForm";
+import LicensesSection from "@/components/home/LicensesSection";
+import HomeGallery from "@/components/home/HomeGallery";
 
-export default function Page() {
-  return (
-    <>
-      <Hero />
-      <TrustStrip />
-      <ServicesGrid />
-      <Philosophy />
-      <EmergencyCTA />
-      <MobileActionBar />
-    </>
-  );
+export default function Home() {
+    return (
+        <>
+            <Hero />
+            <TrustStrip />
+            <ServicesGrid />
+            <CeremonialServices /> {/* new */}
+            <TrainingSection />
+            <Testimonials />
+            <TeamSection />
+            <ClientsSection />
+            <HomeGallery />        {/* new */}
+            <LicensesSection /> {/* new - trust builder */}
+            <ContactForm />
+        </>
+    );
 }

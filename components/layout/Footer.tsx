@@ -1,33 +1,27 @@
 export default function Footer() {
     return (
-        <footer className="bg-black border-t border-yellow-500/10 py-12 mt-20">
-            <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
-                <div>
-                    <h3 className="text-white font-bold tracking-widest mb-3">
-                        BLACKGUARD
-                    </h3>
-                    <p className="text-gray-400 text-sm">
-                        Elite Protection & Discretion Services
-                    </p>
+        <footer className="bg-black text-gray-500 py-10 border-t border-gray-800">
+            <div className="container mx-auto px-4">
+                <div className="grid md:grid-cols-3 gap-6 text-sm">
+                    <div>
+                        <div className="text-white font-black text-xl mb-2">
+                            BLACK GUARD
+                        </div>
+                        <p>Executive protection & tactical security</p>
+                    </div>
+                    <div>
+                        <h4 className="text-white font-semibold mb-2">
+                            Contact
+                        </h4>
+                        <p>+98 21 12345 6789</p>
+                        <p>ops@blackguard.com</p>
+                    </div>
+                    <div>
+                        <h4 className="text-white font-semibold mb-2">Legal</h4>
+                        <p>Licensed by IRGC Security Services</p>
+                        <p>© 2025 – All rights reserved</p>
+                    </div>
                 </div>
-
-                <div>
-                    <h4 className="text-yellow-400 mb-3">Navigation</h4>
-                    <ul className="space-y-2 text-gray-400 text-sm">
-                        <li>Home</li>
-                        <li>Services</li>
-                        <li>Contact</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 className="text-yellow-400 mb-3">24/7 Hotline</h4>
-                    <p className="text-red-500 font-bold">+1 XXX XXX XXXX</p>
-                </div>
-            </div>
-
-            <div className="text-center text-gray-600 text-xs mt-10">
-                © {new Date().getFullYear()} BlackGuard. All rights reserved.
             </div>
         </footer>
     );
