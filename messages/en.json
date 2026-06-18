@@ -81,17 +81,23 @@
         "ratingText": "Rated 4.9/5 by our clients"
     },
     "TeamSection": {
+        "badge": "MEET THE TEAM",
         "title": "Command Staff",
-        "subtitle": "Decades of real‑world operational experience",
-        "member1Name": "Col. Mohammad Reza Karimi (Ret.)",
+        "subtitle": "Decades of real‑world operational experience from elite units",
+        "member1Name": "Hamed Babaee",
         "member1Role": "Director of Operations",
-        "member1Cred": "Former IRGC Special Forces, 22 years",
-        "member2Name": "Sara Ahmadi",
+        "member1Cred": "Former IRGC Special Forces • 22 years",
+        "member1Specialty": "Tactical Operations",
+        "member2Name": "Hamed Babaee",
         "member2Role": "Head of Intelligence",
-        "member2Cred": "Ex‑Military Intelligence, MSc Security",
-        "member3Name": "Hamid Soroush",
+        "member2Cred": "Ex‑Military Intelligence • MSc Security",
+        "member2Specialty": "Threat Analysis",
+        "member3Name": "Hamed Babaee",
         "member3Role": "Training Commander",
-        "member3Cred": "Certified Firearms & Tactics Instructor"
+        "member3Cred": "Certified Firearms & Tactics Instructor",
+        "member3Specialty": "Combat Training",
+        "viewProfile": "View Profile",
+        "viewAllTeam": "View All Team Members"
     },
     "ClientsSection": {
         "title": "Trusted by leading organizations",
@@ -130,15 +136,28 @@
         "footerNote": "All licenses are verifiable through the issuing authorities"
     },
     "ContactForm": {
+        "badge": "GET IN TOUCH",
         "title": "Request a Consultation",
         "subtitle": "Complete the form. A security advisor will respond within 2 hours.",
-        "namePlaceholder": "Full name",
-        "emailPlaceholder": "Email address",
-        "phonePlaceholder": "Phone (optional)",
+        "nameLabel": "Full Name",
+        "namePlaceholder": "Enter your full name",
+        "emailLabel": "Email Address",
+        "emailPlaceholder": "Enter your email address",
+        "phoneLabel": "Phone Number",
+        "phonePlaceholder": "Enter your phone number (optional)",
+        "messageLabel": "Message",
         "messagePlaceholder": "Describe your security requirement",
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "messageRequired": "Message is required",
         "submitButton": "Send Encrypted Request",
+        "submitting": "Sending...",
         "successMessage": "Request received.",
-        "successSubtext": "We’ll contact you shortly."
+        "successSubtext": "One of our security advisors will contact you within 24 hours.",
+        "sendAnother": "Send another request",
+        "errorMessage": "Something went wrong. Please try again.",
+        "privacyNote": "Your information is encrypted and will never be shared with third parties."
     },
     "Footer": {
         "tagline": "Executive protection & tactical security",
