@@ -1,0 +1,33 @@
+# Build output
+.next/
+out/
+dist/
+build/
+
+# Node modules
+node_modules/
+
+# Environment files
+.env
+.env.*
+*.local
+
+# Logs
+logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Next.js specific
+.vercel
+*.tsbuildinfo
+
+# I18n messages (optional – keep formatting consistent)
+# messages/*.json
+
+# Ignore generated files
+public/
+*.min.js
+*.min.css

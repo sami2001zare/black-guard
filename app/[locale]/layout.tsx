@@ -22,7 +22,7 @@ export default async function LocaleLayout({
     return (
         <html lang={locale} dir={rtl ? "rtl" : "ltr"}>
             <body
-                className={`bg-black text-white antialiased ${rtl ? "rtl" : "ltr"}`}
+                className={`bg-black text-white antialiased ${rtl ? "rtl yekan" : "ltr"}`}
             >
                 <NextIntlClientProvider messages={messages}>
                     <Header />

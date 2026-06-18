@@ -1,57 +1,25 @@
 "use client";
 
+import { useState } from "react";
+import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
-import { useState, useEffect, useRef } from "react";
 
 const locales = [
     { code: "en", label: "EN" },
-    { code: "fa", label: "FA" }, // Persian – adjust if you use 'ar' or others
-    // Add more as needed: { code: "fr", label: "FR" }
+    { code: "fa", label: "FA" },
+    { code: "ar", label: "AR" },
 ];
 
 export default function LanguageSwitcher() {
     const [isOpen, setIsOpen] = useState(false);
-    const [currentLocale, setCurrentLocale] = useState("en");
-    const router = useRouter();
-    const pathname = usePathname();
-    const dropdownRef = useRef<HTMLDivElement>(null);
-
-    // Extract current locale from pathname (assumes /[locale]/...)
-    useEffect(() => {
-        const segments = pathname.split("/");
-        const localeCandidate = segments[1];
-        if (locales.some((l) => l.code === localeCandidate)) {
-            setCurrentLocale(localeCandidate);
-        } else {
-            setCurrentLocale("en");
-        }
-    }, [pathname]);
-
-    // Close dropdown on click outside
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (
-                dropdownRef.current &&
-                !dropdownRef.current.contains(event.target as Node)
-            ) {
-                setIsOpen(false);
-            }
-        };
-        document.addEventListener("mousedown", handleClickOutside);
-        return () =>
-            document.removeEventListener("mousedown", handleClickOutside);
-    }, []);
+    const router = useRouter(); // from next-intl/client
+    const pathname = usePathname(); // from next-intl/client
+    const currentLocale = useLocale();
 
     const switchLanguage = (localeCode: string) => {
-        if (localeCode === currentLocale) {
-            setIsOpen(false);
-            return;
-        }
-        // Replace the locale segment in the current path
-        const segments = pathname.split("/");
+        const segments = pathname.split('/');
         segments[1] = localeCode;
-        const newPath = segments.join("/") || "/";
-        router.push(newPath);
+        router.push(segments.join('/'));
         setIsOpen(false);
     };
 
@@ -59,11 +27,10 @@ export default function LanguageSwitcher() {
         locales.find((l) => l.code === currentLocale)?.label || "EN";
 
     return (
-        <div className="relative" ref={dropdownRef}>
+        <div className="relative">
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="flex items-center gap-1 text-gray-300 hover:text-blue-400 font-medium tracking-wide px-3 py-1 border border-gray-700 rounded-sm text-sm transition"
-                aria-label="Change language"
             >
                 {currentLabel}
                 <svg
@@ -80,7 +47,6 @@ export default function LanguageSwitcher() {
                     />
                 </svg>
             </button>
-
             {isOpen && (
                 <div className="absolute right-0 mt-2 w-24 bg-gray-900 border border-gray-700 rounded-sm shadow-lg z-50">
                     {locales.map((locale) => (

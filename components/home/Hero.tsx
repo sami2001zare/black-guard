@@ -121,8 +121,11 @@ export default function Hero() {
                 </div>
             </div>
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-gray-400 text-xs uppercase tracking-wider">
-                <span>Explore</span>
-                <div className="w-px h-12 bg-gradient-to-b from-blue-500 to-transparent animate-pulse" />
+                {/* Mouse icon */}
+                <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center items-start pt-2 animate-bounce">
+                    <div className="w-1 h-3 bg-blue-500 rounded-full animate-pulse" />
+                </div>
+                {/* <span className="text-xs tracking-widest">Scroll</span> */}
             </div>
         </section>
     );
