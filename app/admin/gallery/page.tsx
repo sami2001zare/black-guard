@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import AddMediaDialog from '@/components/admin/AddMediaDialog';
 
 interface MediaItem {
@@ -20,7 +19,6 @@ export default function GalleryPage() {
   const [media, setMedia] = useState<MediaItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [dialogOpen, setDialogOpen] = useState(false);
-  const router = useRouter();
 
   const fetchMedia = async () => {
     setLoading(true);

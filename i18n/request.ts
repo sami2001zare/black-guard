@@ -21,7 +21,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
             timeZone: 'UTC',
             now: new Date(),
         };
-    } catch (error) {
+    } catch {
         // If the messages file doesn't exist, return 404
         notFound();
     }

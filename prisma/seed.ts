@@ -120,6 +120,25 @@ for (const member of teamMembers) {
 
 
 
+const defaultAbout = {
+  id: 'about',
+  titleEn: 'About Us',
+  titleFa: 'درباره ما',
+  titleAr: 'معلومات عنا',
+  contentEn: '<p>Welcome to our company. We provide professional security services.</p>',
+  contentFa: '<p>به شرکت ما خوش آمدید. ما خدمات امنیتی حرفه‌ای ارائه می‌دهیم.</p>',
+  contentAr: '<p>مرحباً بكم في شركتنا. نقدم خدمات أمنية احترافية.</p>',
+  published: true,
+};
+
+await prisma.about.upsert({
+  where: { id: 'about' },
+  update: defaultAbout,
+  create: defaultAbout,
+});
+
+
+
 
 
 }

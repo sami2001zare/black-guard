@@ -6,6 +6,13 @@ import { NextRequest } from 'next/server';
 const JWT_SECRET = process.env.JWT_SECRET || 'your-super-secret-key-change-this';
 const COOKIE_NAME = 'auth_token';
 
+export interface TokenPayload {
+  id: number;
+  email: string;
+  name: string;
+  role: string;
+}
+
 // Hash a password
 export async function hashPassword(password: string): Promise<string> {
   return await bcrypt.hash(password, 10);
@@ -17,14 +24,19 @@ export async function comparePassword(password: string, hash: string): Promise<b
 }
 
 // Generate a JWT token
-export function signToken(payload: { id: number; email: string; name: string; role: string }): string {
+export function signToken(payload: TokenPayload): string {
   return jwt.sign(payload, JWT_SECRET, { expiresIn: '7d' });
 }
 
-// Verify a JWT token
-export function verifyToken(token: string): any {
+// Verify a JWT token and return the payload or null
+export function verifyToken(token: string): TokenPayload | null {
   try {
-    return jwt.verify(token, JWT_SECRET);
+    const decoded = jwt.verify(token, JWT_SECRET);
+    // Ensure the decoded object matches our expected shape
+    if (typeof decoded === 'object' && decoded !== null && 'id' in decoded && 'email' in decoded) {
+      return decoded as TokenPayload;
+    }
+    return null;
   } catch {
     return null;
   }
@@ -39,12 +51,6 @@ export function getTokenFromRequest(req: NextRequest): string | null {
 export function getTokenFromServerCookies(): string | null {
   const cookieStore = cookies();
   return cookieStore.get(COOKIE_NAME)?.value || null;
-}
-
-// Set the auth cookie in a response
-export function setAuthCookie(response: Response, token: string): void {
-  // Note: For API routes, we use the `cookies().set()` method
-  // This function is for convenience; we'll handle cookie setting directly in the API route.
 }
 
 // Clear the auth cookie (logout)

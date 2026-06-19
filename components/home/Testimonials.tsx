@@ -58,7 +58,7 @@ export default function Testimonials() {
               style={{ transitionDelay: `${idx * 150}ms` }}
             >
               {/* Quote Icon */}
-              <div className="text-blue-500 text-3xl font-serif mb-2">"</div>
+              <div className="text-blue-500 text-3xl font-serif mb-2">{`"`}</div>
               
               {/* Quote Text */}
               <p className="text-gray-300 italic mb-4 leading-relaxed">

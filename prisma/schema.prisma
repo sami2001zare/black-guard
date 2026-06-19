@@ -47,6 +47,7 @@ model Media {
 
   services  Service[]
   teamMembers  TeamMember[]
+//   abouts  About[]
 }
 
 
@@ -107,4 +108,22 @@ model TeamMember {
   updatedAt   DateTime @updatedAt
 
   @@index([order])
+}
+
+
+model About {
+  id          String   @id @default(cuid())
+  titleEn     String
+  titleFa     String
+  titleAr     String
+  contentEn   String   // Rich text (HTML/TipTap)
+  contentFa   String
+  contentAr   String
+//   imageMediaId String?
+//   imageMedia  Media?   @relation(fields: [imageMediaId], references: [id])
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([published])
 }
