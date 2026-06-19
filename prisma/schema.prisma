@@ -32,3 +32,56 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+
+model Media {
+  id        String   @id @default(cuid())
+  filename  String   // Original file name
+  path      String   // Relative path e.g., "/uploads/abc123.jpg"
+  mimeType  String
+  size      Int
+  alt       String?  // Optional alt text
+  title     String?  // Optional title
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+//   services  Service[]
+}
+
+
+model Service {
+  id              String   @id @default(cuid())
+  titleEn         String
+  titleFa         String
+  titleAr         String
+  descriptionEn   String
+  descriptionFa   String
+  descriptionAr   String
+  slug            String   @unique
+  imageMediaId    String?
+//   imageMedia      Media?   @relation(fields: [imageMediaId], references: [id])
+  published       Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([slug])
+}
+
+
+model Faq {
+  id          String   @id @default(cuid())
+  questionEn  String
+  questionFa  String
+  questionAr  String
+  answerEn    String   // Rich text (HTML/TipTap)
+  answerFa    String
+  answerAr    String
+  category    String?  // Optional category (e.g., "general", "security", "ceremonial")
+  order       Int      @default(0)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([category])
+  @@index([order])
+}

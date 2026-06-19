@@ -131,11 +131,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <html>
-        <head>
-
-        </head>
-        <body>
+    
 
     <div className="min-h-screen bg-gray-50/95 flex" dir="rtl">
       {/* Sidebar */}
@@ -256,15 +252,21 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
         </main>
       </div>
     </div>
-        </body>
-    </html>
   );
 }
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
+    <html>
+        <head>
+
+        </head>
+        <body className='yekan'>
+
     <UserProvider>
       <AdminLayoutContent>{children}</AdminLayoutContent>
     </UserProvider>
+        </body>
+        </html>
   );
 }
