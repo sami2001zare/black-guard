@@ -3,24 +3,6 @@
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
-const testimonials = [
-    {
-        quote: "Their team neutralized a credible threat before our principal ever knew. Absolute professionals.",
-        name: "J. Whitfield",
-        title: "Security Director, Multinational Corp",
-    },
-    {
-        quote: "We deploy Black Guard for all high‑net‑worth events. Zero incidents in three years.",
-        name: "L. Chen",
-        title: "Event Logistics, Asia Pacific",
-    },
-    {
-        quote: "The residential security upgrade reduced perimeter breaches by 100%. Highly recommended.",
-        name: "M. Torkan",
-        title: "Private Client",
-    },
-];
-
 export default function Testimonials() {
   const t = useTranslations("Testimonials");
   const [isVisible, setIsVisible] = useState(false);

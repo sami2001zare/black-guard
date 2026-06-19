@@ -1,5 +1,4 @@
 import { getRequestConfig } from "next-intl/server";
-import { routing } from "./routing";
 import { notFound } from "next/navigation";
 
 const locales = ['en', 'ar', 'fa'] as const;
