@@ -45,7 +45,8 @@ model Media {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-//   services  Service[]
+  services  Service[]
+  teamMembers  TeamMember[]
 }
 
 
@@ -59,7 +60,7 @@ model Service {
   descriptionAr   String
   slug            String   @unique
   imageMediaId    String?
-//   imageMedia      Media?   @relation(fields: [imageMediaId], references: [id])
+  imageMedia      Media?   @relation(fields: [imageMediaId], references: [id])
   published       Boolean  @default(true)
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
@@ -83,5 +84,27 @@ model Faq {
   updatedAt   DateTime @updatedAt
 
   @@index([category])
+  @@index([order])
+}
+
+
+model TeamMember {
+  id          String   @id @default(cuid())
+  nameEn      String
+  nameFa      String
+  nameAr      String
+  roleEn      String
+  roleFa      String
+  roleAr      String
+  credEn      String   // credentials (e.g., "Former Special Forces, 22 years")
+  credFa      String
+  credAr      String
+  imageMediaId String?
+  imageMedia  Media?   @relation(fields: [imageMediaId], references: [id])
+  order       Int      @default(0)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
   @@index([order])
 }
