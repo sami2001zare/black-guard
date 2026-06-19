@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import { cookies } from 'next/headers';
 
 const COOKIE_NAME = 'auth_token';
 

@@ -23,24 +23,23 @@ export default function ImagePickerDialog({ open, onClose, onSelect, selectedId 
 
   useEffect(() => {
     if (open) {
+      const fetchMedia = async () => {
+        setLoading(true);
+        try {
+          const res = await fetch('/api/media');
+          if (res.ok) {
+            const data = await res.json();
+            setMedia(data);
+          }
+        } catch (error) {
+          console.error('Error fetching media:', error);
+        } finally {
+          setLoading(false);
+        }
+      };
       fetchMedia();
     }
   }, [open]);
-
-  const fetchMedia = async () => {
-    setLoading(true);
-    try {
-      const res = await fetch('/api/media');
-      if (res.ok) {
-        const data = await res.json();
-        setMedia(data);
-      }
-    } catch (error) {
-      console.error('Error fetching media:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const filtered = media.filter(item =>
     item.filename.toLowerCase().includes(search.toLowerCase())

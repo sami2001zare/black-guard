@@ -56,8 +56,10 @@ export default function AddMediaDialog({ open, onClose, onSuccess }: AddMediaDia
 
       onSuccess();
       resetForm();
-    } catch (err: any) {
-      setError(err.message || 'خطا در آپلود تصویر');
+    } catch (err) {
+      // Use type guard to safely access error message
+      const errorMessage = err instanceof Error ? err.message : 'خطا در آپلود تصویر';
+      setError(errorMessage);
     } finally {
       setUploading(false);
     }

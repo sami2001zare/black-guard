@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma'; // your prisma client instance
 import { comparePassword, signToken } from '@/lib/auth';
-import { cookies } from 'next/headers';
 
 const COOKIE_NAME = 'auth_token';
 

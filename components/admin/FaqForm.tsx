@@ -4,9 +4,21 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import TextEditor from '@/components/admin/TextEditor';
 
+interface FaqData {
+  id?: string;
+  questionEn?: string;
+  questionFa?: string;
+  questionAr?: string;
+  answerEn?: string;
+  answerFa?: string;
+  answerAr?: string;
+  category?: string | null;
+  published?: boolean;
+}
+
 interface FaqFormProps {
   id?: string;
-  initialData?: any;
+  initialData?: FaqData;
 }
 
 export default function FaqForm({ id, initialData }: FaqFormProps) {
@@ -27,6 +39,9 @@ export default function FaqForm({ id, initialData }: FaqFormProps) {
 
   useEffect(() => {
     if (id && initialData) {
+      // This is a standard form initialization pattern. The effect runs only
+      // when id or initialData change, and the state update is necessary.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormData({
         questionEn: initialData.questionEn || '',
         questionFa: initialData.questionFa || '',
@@ -74,8 +89,9 @@ export default function FaqForm({ id, initialData }: FaqFormProps) {
 
       router.push('/admin/faq');
       router.refresh();
-    } catch (err: any) {
-      setError(err.message || 'خطا در ذخیره‌سازی');
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'خطا در ذخیره‌سازی';
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }

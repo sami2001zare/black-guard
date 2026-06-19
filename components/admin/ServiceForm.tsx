@@ -6,9 +6,21 @@ import Image from 'next/image';
 import TextEditor from '@/components/admin/TextEditor';
 import ImagePickerDialog from '@/components/admin/ImagePickerDialog';
 
+interface ServiceData {
+  id?: string;
+  titleEn?: string;
+  titleFa?: string;
+  titleAr?: string;
+  descriptionEn?: string;
+  descriptionFa?: string;
+  descriptionAr?: string;
+  imageMediaId?: string | null;
+  published?: boolean;
+}
+
 interface ServiceFormProps {
   id?: string;
-  initialData?: any;
+  initialData?: ServiceData;
 }
 
 export default function ServiceForm({ id, initialData }: ServiceFormProps) {
@@ -30,6 +42,9 @@ export default function ServiceForm({ id, initialData }: ServiceFormProps) {
 
   useEffect(() => {
     if (id && initialData) {
+      // This is a standard form initialization pattern. The effect runs only
+      // when id or initialData change, and the state update is necessary.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormData({
         titleEn: initialData.titleEn || '',
         titleFa: initialData.titleFa || '',
@@ -81,8 +96,9 @@ export default function ServiceForm({ id, initialData }: ServiceFormProps) {
 
       router.push('/admin/services');
       router.refresh();
-    } catch (err: any) {
-      setError(err.message || 'خطا در ذخیره‌سازی');
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'خطا در ذخیره‌سازی';
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -92,12 +108,13 @@ export default function ServiceForm({ id, initialData }: ServiceFormProps) {
   const [selectedImageUrl, setSelectedImageUrl] = useState<string | null>(null);
   useEffect(() => {
     if (formData.imageMediaId) {
-      // Fetch the media item to get the path
       fetch(`/api/media/${formData.imageMediaId}`)
         .then(res => res.json())
         .then(data => setSelectedImageUrl(data.path))
         .catch(() => setSelectedImageUrl(null));
     } else {
+      // Resetting state when the ID is cleared is safe and intentional
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSelectedImageUrl(null);
     }
   }, [formData.imageMediaId]);

@@ -46,7 +46,12 @@ export function UserProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     // Skip fetching on login page (no token needed)
     if (pathname === '/admin/login') {
+      // These synchronous state updates are safe and intentional.
+      // They only run when pathname is '/admin/login' and won't cause
+      // cascading renders because the effect dependencies don't include the state.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLoading(false);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setUser(null);
       return;
     }

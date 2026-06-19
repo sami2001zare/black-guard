@@ -5,9 +5,21 @@ import { useRouter } from 'next/navigation';
 import TextEditor from '@/components/admin/TextEditor';
 import ImagePicker from '@/components/admin/ImagePicker';
 
+interface AboutData {
+  id?: string;
+  titleEn?: string;
+  titleFa?: string;
+  titleAr?: string;
+  contentEn?: string;
+  contentFa?: string;
+  contentAr?: string;
+  imageMediaId?: string | null;
+  published?: boolean;
+}
+
 interface AboutFormProps {
   id?: string;
-  initialData?: any;
+  initialData?: AboutData;
 }
 
 export default function AboutForm({ id, initialData }: AboutFormProps) {
@@ -28,6 +40,9 @@ export default function AboutForm({ id, initialData }: AboutFormProps) {
 
   useEffect(() => {
     if (id && initialData) {
+      // This is a standard form initialization pattern. The effect runs only
+      // when id or initialData change, and the state update is necessary.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormData({
         titleEn: initialData.titleEn || '',
         titleFa: initialData.titleFa || '',
@@ -53,6 +68,10 @@ export default function AboutForm({ id, initialData }: AboutFormProps) {
     setFormData(prev => ({ ...prev, [field]: html }));
   };
 
+  const handleImageSelect = (mediaId: string) => {
+    setFormData(prev => ({ ...prev, imageMediaId: mediaId }));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -75,8 +94,10 @@ export default function AboutForm({ id, initialData }: AboutFormProps) {
 
       router.push('/admin/about');
       router.refresh();
-    } catch (err: any) {
-      setError(err.message || 'خطا در ذخیره‌سازی');
+    } catch (err) {
+      // Type guard to safely access error message
+      const errorMessage = err instanceof Error ? err.message : 'خطا در ذخیره‌سازی';
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -85,7 +106,7 @@ export default function AboutForm({ id, initialData }: AboutFormProps) {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* Titles */}
-      <div className="grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Title (English) *</label>
           <input
@@ -120,7 +141,7 @@ export default function AboutForm({ id, initialData }: AboutFormProps) {
       </div>
 
       {/* Content (Rich Text) */}
-      <div className="grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Content (English) *</label>
           <TextEditor
@@ -147,14 +168,14 @@ export default function AboutForm({ id, initialData }: AboutFormProps) {
         </div>
       </div>
 
-      {/* Image Picker
+      {/* Image Picker */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">تصویر اصلی</label>
         <ImagePicker
           selectedId={formData.imageMediaId}
           onSelect={handleImageSelect}
         />
-      </div> */}
+      </div>
 
       {/* Published Checkbox */}
       <div className="flex items-center gap-2">

@@ -4,9 +4,23 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import ImagePicker from '@/components/admin/ImagePicker';
 
+interface TeamMemberFormData {
+  nameEn: string;
+  nameFa: string;
+  nameAr: string;
+  roleEn: string;
+  roleFa: string;
+  roleAr: string;
+  credEn: string;
+  credFa: string;
+  credAr: string;
+  imageMediaId: string;
+  published: boolean;
+}
+
 interface TeamMemberFormProps {
   id?: string;
-  initialData?: any;
+  initialData?: Partial<TeamMemberFormData>;
 }
 
 export default function TeamMemberForm({ id, initialData }: TeamMemberFormProps) {
@@ -14,7 +28,7 @@ export default function TeamMemberForm({ id, initialData }: TeamMemberFormProps)
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<TeamMemberFormData>({
     nameEn: '',
     nameFa: '',
     nameAr: '',
@@ -30,6 +44,9 @@ export default function TeamMemberForm({ id, initialData }: TeamMemberFormProps)
 
   useEffect(() => {
     if (id && initialData) {
+      // This is a safe pattern: we're populating form state from props
+      // only on initial mount or when id/initialData changes.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormData({
         nameEn: initialData.nameEn || '',
         nameFa: initialData.nameFa || '',
@@ -80,8 +97,8 @@ export default function TeamMemberForm({ id, initialData }: TeamMemberFormProps)
 
       router.push('/admin/team');
       router.refresh();
-    } catch (err: any) {
-      setError(err.message || 'خطا در ذخیره‌سازی');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'خطا در ذخیره‌سازی');
     } finally {
       setLoading(false);
     }

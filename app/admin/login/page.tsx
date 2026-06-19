@@ -33,7 +33,7 @@ export default function AdminLogin() {
 
       // Success
       router.push('/admin');
-    } catch (err) {
+    } catch {
       setError('خطای شبکه، لطفاً دوباره تلاش کنید');
       setLoading(false);
     }

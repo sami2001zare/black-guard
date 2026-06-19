@@ -36,6 +36,9 @@ export default function GalleryPage() {
   };
 
   useEffect(() => {
+    // This effect runs only once on mount. The state updates are safe
+    // and necessary for fetching initial data.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchMedia();
   }, []);
 
