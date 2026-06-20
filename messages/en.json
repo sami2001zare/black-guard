@@ -38,7 +38,8 @@
         "counterSurveillance": "Counter‑Surveillance",
         "counterSurveillanceDesc": "Technical surveillance countermeasures and discreet monitoring.",
         "learnMore": "Learn more",
-        "viewAll": "View All Services"
+        "viewAll": "View All Services",
+        "noImage": "No image"
     },
     "CeremonialServices": {
         "title": "Ceremonial Services",
@@ -49,7 +50,9 @@
         "personalChauffeurDesc": "Discreet, professional drivers trained in evasive driving and protocol.",
         "vipTransfer": "VIP Transfer Service",
         "vipTransferDesc": "Airport meet & greet, hotel transfers, corporate events with full coordination.",
-        "requestLink": "Request Ceremonial Services →"
+        "requestLink": "Request Ceremonial Services →",
+        "learnMore": "Learn More",
+        "noImage": "No image"
     },
     "TrainingSection": {
         "badge": "Black Guard Academy",
@@ -176,5 +179,62 @@
         "title": "About Us",
         "description": "Learn about Black Guard – your trusted security partner",
         "defaultTitle": "About Us"
+    },
+    "ConsultationModal": {
+        "title": "Need a Consultation?",
+        "subtitle": "Get a free consultation for",
+        "nameLabel": "Full Name",
+        "namePlaceholder": "Enter your full name",
+        "emailLabel": "Email Address",
+        "emailPlaceholder": "Enter your email",
+        "phoneLabel": "Phone Number",
+        "phonePlaceholder": "Enter your phone (optional)",
+        "messageLabel": "Message",
+        "messagePlaceholder": "Tell us about your needs...",
+        "messagePrefix": "I would like to consult about",
+        "submitButton": "Send Request",
+        "submitting": "Sending...",
+        "successMessage": "Request sent successfully!",
+        "successSubtext": "Our team will contact you shortly.",
+        "errorMessage": "Something went wrong. Please try again.",
+        "privacyNote": "Your information is encrypted and will never be shared.",
+        "close": "Close"
+    },
+    "ServicesPage": {
+        "title": "Our Services",
+        "description": "Discover our comprehensive range of professional security and protection services.",
+        "subtitle": "From executive protection to residential security – we've got you covered.",
+        "learnMore": "Learn More",
+        "noServices": "No services available.",
+        "noImage": "No image"
+    },
+    "ContactPage": {
+        "title": "Contact Us",
+        "description": "Get in touch with Black Guard – your trusted security partner",
+        "subtitle": "Have questions or need a quote? We're here to help. Reach out to us anytime.",
+        "contactInfo": "Contact Information",
+        "phone": "Phone",
+        "email": "Email",
+        "address": "Address",
+        "workingHours": "Working Hours",
+        "alwaysAvailable": "Always Available",
+        "sendMessage": "Send Us a Message",
+        "findUs": "Find Us",
+        "mapPlaceholder": "Map will be displayed here",
+        "nameLabel": "Full Name",
+        "namePlaceholder": "Enter your full name",
+        "emailLabel": "Email Address",
+        "emailPlaceholder": "Enter your email address",
+        "phoneLabel": "Phone Number",
+        "phonePlaceholder": "Enter your phone number (optional)",
+        "messageLabel": "Message",
+        "messagePlaceholder": "Tell us about your security needs...",
+        "submitButton": "Send Message",
+        "submitting": "Sending...",
+        "successMessage": "Message sent successfully!",
+        "successSubtext": "Our team will get back to you within 24 hours.",
+        "sendAnother": "Send another message",
+        "errorMessage": "Something went wrong. Please try again.",
+        "privacyNote": "Your information is encrypted and will never be shared with third parties."
     }
 }

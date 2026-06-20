@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { getTokenFromRequest, verifyToken } from '@/lib/auth';
+import { Prisma } from '@prisma/client';
 
 export async function GET(request: NextRequest) {
     // Authenticate admin
@@ -18,7 +19,7 @@ export async function GET(request: NextRequest) {
         const status = searchParams.get('status');
         const limit = parseInt(searchParams.get('limit') || '50', 10);
 
-        const where: any = {};
+        const where: Prisma.ContactMessageWhereInput = {};
         if (status) {
             where.status = status;
         }

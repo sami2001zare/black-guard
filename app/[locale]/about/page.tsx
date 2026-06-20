@@ -1,12 +1,10 @@
 import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 import { getLocale, getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
 
 // Generate metadata for SEO
 export async function generateMetadata(): Promise<Metadata> {
-    const locale = await getLocale();
     const t = await getTranslations('AboutPage');
 
     return {

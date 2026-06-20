@@ -38,7 +38,8 @@
         "counterSurveillance": "ضد نظارت",
         "counterSurveillanceDesc": "اقدامات فنی ضد جاسوسی و نظارت محتاطانه",
         "learnMore": "اطلاعات بیشتر",
-        "viewAll": "مشاهده همه خدمات"
+        "viewAll": "مشاهده همه خدمات",
+        "noImage": "بدون تصویر"
     },
     "CeremonialServices": {
         "title": "خدمات تشریفاتی",
@@ -49,7 +50,9 @@
         "personalChauffeurDesc": "رانندگان حرفه‌ای آموزش‌دیده در رانندگی تدافعی و تشریفات",
         "vipTransfer": "ترانسفر تشریفاتی",
         "vipTransferDesc": "استقبال از فرودگاه، ترانسفر هتل، رویدادهای شرکتی با هماهنگی کامل",
-        "requestLink": "درخواست خدمات تشریفاتی →"
+        "requestLink": "درخواست خدمات تشریفاتی",
+        "learnMore": "اطلاعات بیشتر",
+        "noImage": "بدون تصویر"
     },
     "TrainingSection": {
         "badge": "آکادمی بلک گارد",
@@ -176,5 +179,62 @@
         "title": "درباره ما",
         "description": "با بلک گارد – شریک امنیتی مورد اعتماد شما آشنا شوید",
         "defaultTitle": "درباره ما"
+    },
+    "ConsultationModal": {
+        "title": "نیاز به مشاوره دارید؟",
+        "subtitle": "مشاوره رایگان برای",
+        "nameLabel": "نام کامل",
+        "namePlaceholder": "نام کامل خود را وارد کنید",
+        "emailLabel": "آدرس ایمیل",
+        "emailPlaceholder": "ایمیل خود را وارد کنید",
+        "phoneLabel": "شماره تلفن",
+        "phonePlaceholder": "تلفن خود را وارد کنید (اختیاری)",
+        "messageLabel": "پیام",
+        "messagePlaceholder": "نیازهای خود را بنویسید...",
+        "messagePrefix": "مایل به مشاوره درباره",
+        "submitButton": "ارسال درخواست",
+        "submitting": "در حال ارسال...",
+        "successMessage": "درخواست با موفقیت ارسال شد!",
+        "successSubtext": "تیم ما به زودی با شما تماس خواهد گرفت.",
+        "errorMessage": "خطایی رخ داد. لطفاً دوباره تلاش کنید.",
+        "privacyNote": "اطلاعات شما رمزنگاری شده و هرگز به اشتراک گذاشته نمی‌شود.",
+        "close": "بستن"
+    },
+    "ServicesPage": {
+        "title": "خدمات ما",
+        "description": "طیف کاملی از خدمات حرفه‌ای امنیتی و حفاظتی را کشف کنید.",
+        "subtitle": "از حفاظت از مدیران تا امنیت منازل – ما از شما محافظت می‌کنیم.",
+        "learnMore": "اطلاعات بیشتر",
+        "noServices": "هیچ خدماتی موجود نیست.",
+        "noImage": "بدون تصویر"
+    },
+    "ContactPage": {
+        "title": "تماس با ما",
+        "description": "با بلک گارد – شریک امنیتی مورد اعتماد شما – در تماس باشید",
+        "subtitle": "سوالی دارید یا نیاز به مشاوره دارید؟ ما اینجا هستیم تا کمک کنیم. هر زمان که نیاز داشتید با ما تماس بگیرید.",
+        "contactInfo": "اطلاعات تماس",
+        "phone": "تلفن",
+        "email": "ایمیل",
+        "address": "آدرس",
+        "workingHours": "ساعات کاری",
+        "alwaysAvailable": "همیشه در دسترس",
+        "sendMessage": "برای ما پیام ارسال کنید",
+        "findUs": "ما را پیدا کنید",
+        "mapPlaceholder": "نقشه در اینجا نمایش داده می‌شود",
+        "nameLabel": "نام کامل",
+        "namePlaceholder": "نام کامل خود را وارد کنید",
+        "emailLabel": "آدرس ایمیل",
+        "emailPlaceholder": "آدرس ایمیل خود را وارد کنید",
+        "phoneLabel": "شماره تلفن",
+        "phonePlaceholder": "شماره تلفن خود را وارد کنید (اختیاری)",
+        "messageLabel": "پیام",
+        "messagePlaceholder": "نیازهای امنیتی خود را برای ما بنویسید...",
+        "submitButton": "ارسال پیام",
+        "submitting": "در حال ارسال...",
+        "successMessage": "پیام با موفقیت ارسال شد!",
+        "successSubtext": "تیم ما ظرف ۲۴ ساعت با شما تماس خواهد گرفت.",
+        "sendAnother": "ارسال پیام دیگر",
+        "errorMessage": "خطایی رخ داد. لطفاً دوباره تلاش کنید.",
+        "privacyNote": "اطلاعات شما رمزنگاری شده و هرگز با اشخاص ثالث به اشتراک گذاشته نمی‌شود."
     }
 }

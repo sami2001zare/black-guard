@@ -32,7 +32,7 @@ export default function Hero() {
                     quality={90}
                 />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
+            <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/60 to-black/40" />
             <div className="relative container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
                 <div className="text-white">
                     <div className="mb-4">

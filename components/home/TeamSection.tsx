@@ -25,7 +25,7 @@ export default function TeamSection() {
     const t = useTranslations('TeamSection');
     const [members, setMembers] = useState<TeamMember[]>([]);
     const [loading, setLoading] = useState(true);
-    const [isVisible, setIsVisible] = useState(false);
+    // const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef<HTMLElement>(null);
     const locale = useLocale();
 
@@ -33,7 +33,7 @@ export default function TeamSection() {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    setIsVisible(true);
+                    // setIsVisible(true);
                     observer.disconnect();
                 }
             },
@@ -180,7 +180,7 @@ export default function TeamSection() {
                 </div>
 
                 {/* CTA Link */}
-                <div className="text-center mt-12">
+                {/* <div className="text-center mt-12">
                     <Link
                         href="/team"
                         className="inline-flex items-center gap-2 text-gray-400 hover:text-white border border-gray-700 hover:border-blue-500 px-6 py-3 rounded-sm font-medium transition"
@@ -188,7 +188,7 @@ export default function TeamSection() {
                         {t('viewAllTeam')}
                         <span className="text-blue-400">→</span>
                     </Link>
-                </div>
+                </div> */}
             </div>
         </section>
     );

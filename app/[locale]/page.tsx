@@ -5,7 +5,6 @@ import CeremonialServices from '@/components/home/CeremonialServices';
 import TrainingSection from '@/components/home/TrainingSection';
 import Testimonials from '@/components/home/Testimonials';
 import TeamSection from '@/components/home/TeamSection';
-import ClientsSection from '@/components/home/ClientsSection';
 import ContactForm from '@/components/home/ContactForm';
 import LicensesSection from '@/components/home/LicensesSection';
 import HomeGallery from '@/components/home/HomeGallery';
@@ -13,17 +12,17 @@ import HomeGallery from '@/components/home/HomeGallery';
 export default function Home() {
     return (
         <>
-            {/* <Hero /> */}
-            {/* <TrustStrip /> */}
-            {/* <ServicesGrid /> */}
-            {/* <CeremonialServices /> */}
-            {/* <TrainingSection /> */}
-            {/* <Testimonials /> */}
+            <Hero />
+            <TrustStrip />
+            <ServicesGrid />
+            <CeremonialServices />
+            <TrainingSection />
+            <Testimonials />
             <TeamSection />
-            <ClientsSection />
-            {/* <HomeGallery /> */}
-            {/* <LicensesSection /> */}
-            {/* <ContactForm /> */}
+            {/* <ClientsSection /> */}
+            <HomeGallery />
+            <LicensesSection />
+            <ContactForm />
         </>
     );
 }

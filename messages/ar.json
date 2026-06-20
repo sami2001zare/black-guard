@@ -38,7 +38,8 @@
         "counterSurveillance": "مكافحة المراقبة",
         "counterSurveillanceDesc": "إجراءات مضادة للتجسس التقني ومراقبة حذرة",
         "learnMore": "اعرف المزيد",
-        "viewAll": "عرض جميع الخدمات"
+        "viewAll": "عرض جميع الخدمات",
+        "noImage": "بدون صورة"
     },
     "CeremonialServices": {
         "title": "الخدمات التشريفاتية",
@@ -149,7 +150,9 @@
         "messagePlaceholder": "صف متطلباتك الأمنية",
         "submitButton": "إرسال طلب مشفر",
         "successMessage": "تم استلام الطلب.",
-        "successSubtext": "سنتصل بك قريباً."
+        "successSubtext": "سنتصل بك قريباً.",
+        "learnMore": "اعرف المزيد",
+        "noImage": "بدون صورة"
     },
     "Footer": {
         "tagline": "الحماية التنفيذية والأمن التكتيكي",
@@ -175,5 +178,62 @@
         "viewProfile": "عرض الملف الشخصي",
         "viewAllTeam": "عرض جميع أعضاء الفريق",
         "noImage": "بدون صورة"
+    },
+    "ConsultationModal": {
+        "title": "هل تحتاج استشارة؟",
+        "subtitle": "احصل على استشارة مجانية لـ",
+        "nameLabel": "الاسم الكامل",
+        "namePlaceholder": "أدخل اسمك الكامل",
+        "emailLabel": "البريد الإلكتروني",
+        "emailPlaceholder": "أدخل بريدك الإلكتروني",
+        "phoneLabel": "رقم الهاتف",
+        "phonePlaceholder": "أدخل هاتفك (اختياري)",
+        "messageLabel": "الرسالة",
+        "messagePlaceholder": "أخبرنا عن احتياجاتك...",
+        "messagePrefix": "أرغب في استشارة حول",
+        "submitButton": "إرسال الطلب",
+        "submitting": "جاري الإرسال...",
+        "successMessage": "تم إرسال الطلب بنجاح!",
+        "successSubtext": "سيتواصل معك فريقنا قريباً.",
+        "errorMessage": "حدث خطأ. يرجى المحاولة مرة أخرى.",
+        "privacyNote": "معلوماتك مشفرة ولن تتم مشاركتها أبداً.",
+        "close": "إغلاق"
+    },
+    "ServicesPage": {
+        "title": "خدماتنا",
+        "description": "اكتشف مجموعتنا الشاملة من الخدمات الأمنية والحماية الاحترافية.",
+        "subtitle": "من حماية التنفيذيين إلى الأمن السكني – نحن نغطي احتياجاتك.",
+        "learnMore": "اعرف المزيد",
+        "noServices": "لا توجد خدمات متاحة.",
+        "noImage": "بدون صورة"
+    },
+    "ContactPage": {
+        "title": "اتصل بنا",
+        "description": "تواصل مع بلاك غارد – شريكك الأمني الموثوق",
+        "subtitle": "لديك أسئلة أو تحتاج إلى عرض سعر؟ نحن هنا للمساعدة. تواصل معنا في أي وقت.",
+        "contactInfo": "معلومات الاتصال",
+        "phone": "الهاتف",
+        "email": "البريد الإلكتروني",
+        "address": "العنوان",
+        "workingHours": "ساعات العمل",
+        "alwaysAvailable": "متاح دائماً",
+        "sendMessage": "أرسل لنا رسالة",
+        "findUs": "اعثر علينا",
+        "mapPlaceholder": "سيتم عرض الخريطة هنا",
+        "nameLabel": "الاسم الكامل",
+        "namePlaceholder": "أدخل اسمك الكامل",
+        "emailLabel": "البريد الإلكتروني",
+        "emailPlaceholder": "أدخل عنوان بريدك الإلكتروني",
+        "phoneLabel": "رقم الهاتف",
+        "phonePlaceholder": "أدخل رقم هاتفك (اختياري)",
+        "messageLabel": "الرسالة",
+        "messagePlaceholder": "أخبرنا عن احتياجاتك الأمنية...",
+        "submitButton": "إرسال الرسالة",
+        "submitting": "جاري الإرسال...",
+        "successMessage": "تم إرسال الرسالة بنجاح!",
+        "successSubtext": "سيتواصل معك فريقنا خلال ٢٤ ساعة.",
+        "sendAnother": "إرسال رسالة أخرى",
+        "errorMessage": "حدث خطأ. يرجى المحاولة مرة أخرى.",
+        "privacyNote": "معلوماتك مشفرة ولن تتم مشاركتها مع أطراف ثالثة أبداً."
     }
 }

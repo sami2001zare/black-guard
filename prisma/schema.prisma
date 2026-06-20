@@ -45,7 +45,8 @@ model Media {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  services  Service[]
+  services  Service[] 
+  ceremonialService CeremonialService[]
   teamMembers  TeamMember[]
 //   abouts  About[]
 }
@@ -141,4 +142,24 @@ model ContactMessage {
 
   @@index([status])
   @@index([createdAt])
+}
+
+
+model CeremonialService {
+  id          String   @id @default(cuid())
+  titleEn     String
+  titleFa     String
+  titleAr     String
+  descriptionEn String
+  descriptionFa String
+  descriptionAr String
+  imageMediaId String?
+  imageMedia  Media?   @relation(fields: [imageMediaId], references: [id])
+  order       Int      @default(0)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([order])
+  @@index([published])
 }

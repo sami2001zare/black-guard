@@ -51,7 +51,6 @@ export function UserProvider({ children }: { children: ReactNode }) {
             // cascading renders because the effect dependencies don't include the state.
             // eslint-disable-next-line react-hooks/set-state-in-effect
             setLoading(false);
-            // eslint-disable-next-line react-hooks/set-state-in-effect
             setUser(null);
             return;
         }

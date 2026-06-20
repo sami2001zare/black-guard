@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 
 interface Message {
@@ -20,7 +20,7 @@ export default function MessagesPage() {
     const [total, setTotal] = useState(0);
     const router = useRouter();
 
-    const fetchMessages = async (status = 'all') => {
+    const fetchMessages = useCallback(async (status = 'all') => {
         setLoading(true);
         try {
             const url =
@@ -41,11 +41,14 @@ export default function MessagesPage() {
         } finally {
             setLoading(false);
         }
-    };
+    }, [router]);
 
     useEffect(() => {
+        // This effect triggers data fetching; the state updates are safe
+        // because they happen asynchronously and won't cause cascading renders.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         fetchMessages(statusFilter);
-    }, [statusFilter]);
+    }, [fetchMessages, statusFilter]);
 
     const updateStatus = async (id: string, newStatus: 'read' | 'replied') => {
         try {
