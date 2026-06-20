@@ -20,28 +20,33 @@ export default function MessagesPage() {
     const [total, setTotal] = useState(0);
     const router = useRouter();
 
-    const fetchMessages = useCallback(async (status = 'all') => {
-        setLoading(true);
-        try {
-            const url =
-                status !== 'all' ? `/api/admin/messages?status=${status}` : '/api/admin/messages';
-            const res = await fetch(url);
-            if (res.ok) {
-                const data = await res.json();
-                setMessages(data.messages);
-                setTotal(data.total);
-            } else {
-                // If unauthorized, redirect to login
-                if (res.status === 401) {
-                    router.push('/admin/login');
+    const fetchMessages = useCallback(
+        async (status = 'all') => {
+            setLoading(true);
+            try {
+                const url =
+                    status !== 'all'
+                        ? `/api/admin/messages?status=${status}`
+                        : '/api/admin/messages';
+                const res = await fetch(url);
+                if (res.ok) {
+                    const data = await res.json();
+                    setMessages(data.messages);
+                    setTotal(data.total);
+                } else {
+                    // If unauthorized, redirect to login
+                    if (res.status === 401) {
+                        router.push('/admin/login');
+                    }
                 }
+            } catch (error) {
+                console.error('Error fetching messages:', error);
+            } finally {
+                setLoading(false);
             }
-        } catch (error) {
-            console.error('Error fetching messages:', error);
-        } finally {
-            setLoading(false);
-        }
-    }, [router]);
+        },
+        [router]
+    );
 
     useEffect(() => {
         // This effect triggers data fetching; the state updates are safe

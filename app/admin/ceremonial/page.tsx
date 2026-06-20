@@ -33,6 +33,9 @@ export default function CeremonialServicesPage() {
     }, []);
 
     useEffect(() => {
+        // This effect triggers data fetching; the state updates are safe
+        // because they happen asynchronously and won't cause cascading renders.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         fetchServices();
     }, [fetchServices]);
 

@@ -6,9 +6,20 @@ import Image from 'next/image';
 import TextEditor from '@/components/admin/TextEditor';
 import ImagePickerDialog from '@/components/admin/ImagePickerDialog';
 
+interface CeremonialInitialData {
+    titleEn?: string;
+    titleFa?: string;
+    titleAr?: string;
+    descriptionEn?: string;
+    descriptionFa?: string;
+    descriptionAr?: string;
+    imageMediaId?: string | null;
+    published?: boolean;
+}
+
 interface CeremonialFormProps {
     id?: string;
-    initialData?: any;
+    initialData?: CeremonialInitialData;
 }
 
 export default function CeremonialForm({ id, initialData }: CeremonialFormProps) {
