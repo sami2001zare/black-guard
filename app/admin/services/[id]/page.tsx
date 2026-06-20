@@ -3,19 +3,19 @@ import ServiceForm from '@/components/admin/ServiceForm';
 import { notFound } from 'next/navigation';
 
 interface Props {
-  params: { id: string };
+    params: { id: string };
 }
 
 export default async function EditServicePage({ params }: Props) {
-  const { id } = await params;
-  const service = await prisma.service.findUnique({
-    where: { id },
-    // include: { imageMedia: true },
-  });
+    const { id } = await params;
+    const service = await prisma.service.findUnique({
+        where: { id },
+        // include: { imageMedia: true },
+    });
 
-  if (!service) {
-    notFound();
-  }
+    if (!service) {
+        notFound();
+    }
 
-  return <ServiceForm id={id} initialData={service} />;
+    return <ServiceForm id={id} initialData={service} />;
 }

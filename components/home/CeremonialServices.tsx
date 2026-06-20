@@ -1,49 +1,49 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import Image from "next/image";
-import { useLocale } from "next-intl";
+import Link from 'next/link';
+import Image from 'next/image';
+import { useLocale } from 'next-intl';
 
 const services = [
     {
-        title: "Luxury Car Rental",
-        titleFa: "اجاره خودرو لوکس",
-        desc: "Fleet of Mercedes S-Class, BMW 7 Series, Lexus LS, and armored vehicles.",
-        descFa: "ناوگان مرسدس بنز اس کلاس، بی‌ام‌و سری ۷، لکسوس LS و خودروهای زرهی",
-        img: "/image/ceremonial/luxury-car.jpg"
+        title: 'Luxury Car Rental',
+        titleFa: 'اجاره خودرو لوکس',
+        desc: 'Fleet of Mercedes S-Class, BMW 7 Series, Lexus LS, and armored vehicles.',
+        descFa: 'ناوگان مرسدس بنز اس کلاس، بی‌ام‌و سری ۷، لکسوس LS و خودروهای زرهی',
+        img: '/image/ceremonial/luxury-car.jpg',
     },
     {
-        title: "Personal Chauffeur",
-        titleFa: "راننده شخصی",
-        desc: "Discreet, professional drivers trained in evasive driving and protocol.",
-        descFa: "رانندگان حرفه‌ای آموزش‌دیده در رانندگی تدافعی و تشریفات",
-        img: "/image/ceremonial/chauffeur.jpg"
+        title: 'Personal Chauffeur',
+        titleFa: 'راننده شخصی',
+        desc: 'Discreet, professional drivers trained in evasive driving and protocol.',
+        descFa: 'رانندگان حرفه‌ای آموزش‌دیده در رانندگی تدافعی و تشریفات',
+        img: '/image/ceremonial/chauffeur.jpg',
     },
     {
-        title: "VIP Transfer Service",
-        titleFa: "ترانسفر تشریفاتی",
-        desc: "Airport meet & greet, hotel transfers, corporate events with full coordination.",
-        descFa: "استقبال از فرودگاه، ترانسفر هتل، رویدادهای شرکتی با هماهنگی کامل",
-        img: "/image/ceremonial/vip-transfer.jpg"
+        title: 'VIP Transfer Service',
+        titleFa: 'ترانسفر تشریفاتی',
+        desc: 'Airport meet & greet, hotel transfers, corporate events with full coordination.',
+        descFa: 'استقبال از فرودگاه، ترانسفر هتل، رویدادهای شرکتی با هماهنگی کامل',
+        img: '/image/ceremonial/vip-transfer.jpg',
     },
 ];
 
 export default function CeremonialServices() {
     const locale = useLocale();
-    const isRtl = locale === "fa";
+    const isRtl = locale === 'fa';
 
     return (
         <section className="py-24 bg-gray-950 border-y border-gray-800">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
                     <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight text-white">
-                        {isRtl ? "خدمات تشریفاتی" : "Ceremonial Services"}
+                        {isRtl ? 'خدمات تشریفاتی' : 'Ceremonial Services'}
                     </h2>
                     <div className="w-20 h-0.5 bg-blue-500 mx-auto my-4" />
                     <p className="text-gray-400 max-w-2xl mx-auto">
                         {isRtl
-                            ? "تجربه سفر و تشریفات در بالاترین سطح"
-                            : "Experience travel and protocol at the highest level"}
+                            ? 'تجربه سفر و تشریفات در بالاترین سطح'
+                            : 'Experience travel and protocol at the highest level'}
                     </p>
                 </div>
                 <div className="grid md:grid-cols-3 gap-6">
@@ -76,9 +76,7 @@ export default function CeremonialServices() {
                         href="/ceremonial"
                         className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold uppercase tracking-wide text-sm"
                     >
-                        {isRtl
-                            ? "درخواست خدمات تشریفاتی →"
-                            : "Request Ceremonial Services →"}
+                        {isRtl ? 'درخواست خدمات تشریفاتی →' : 'Request Ceremonial Services →'}
                     </Link>
                 </div>
             </div>

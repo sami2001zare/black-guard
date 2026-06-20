@@ -3,25 +3,25 @@ import { notFound } from 'next/navigation';
 import AboutForm from '@/components/admin/AboutForm';
 
 interface Props {
-  params: { id: string };
+    params: { id: string };
 }
 
 export default async function EditAboutPage({ params }: Props) {
-  const { id } = await params;
-  const about = await prisma.about.findUnique({
-    where: { id },
-    // include: { imageMedia: true },
-  });
+    const { id } = await params;
+    const about = await prisma.about.findUnique({
+        where: { id },
+        // include: { imageMedia: true },
+    });
 
-  if (!about) {
-    notFound();
-  }
+    if (!about) {
+        notFound();
+    }
 
-  const serialized = {
-    ...about,
-    createdAt: about.createdAt.toISOString(),
-    updatedAt: about.updatedAt.toISOString(),
-  };
+    const serialized = {
+        ...about,
+        createdAt: about.createdAt.toISOString(),
+        updatedAt: about.updatedAt.toISOString(),
+    };
 
-  return <AboutForm id={id} initialData={serialized} />;
+    return <AboutForm id={id} initialData={serialized} />;
 }

@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { useLocale } from "next-intl";
-import { usePathname, useRouter } from "next/navigation";
+import { useState } from 'react';
+import { useLocale } from 'next-intl';
+import { usePathname, useRouter } from 'next/navigation';
 
 const locales = [
-    { code: "en", label: "EN" },
-    { code: "fa", label: "FA" },
-    { code: "ar", label: "AR" },
+    { code: 'en', label: 'EN' },
+    { code: 'fa', label: 'FA' },
+    { code: 'ar', label: 'AR' },
 ];
 
 export default function LanguageSwitcher() {
@@ -23,8 +23,7 @@ export default function LanguageSwitcher() {
         setIsOpen(false);
     };
 
-    const currentLabel =
-        locales.find((l) => l.code === currentLocale)?.label || "EN";
+    const currentLabel = locales.find((l) => l.code === currentLocale)?.label || 'EN';
 
     return (
         <div className="relative">
@@ -34,7 +33,7 @@ export default function LanguageSwitcher() {
             >
                 {currentLabel}
                 <svg
-                    className={`w-3 h-3 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                    className={`w-3 h-3 transition-transform ${isOpen ? 'rotate-180' : ''}`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -55,8 +54,8 @@ export default function LanguageSwitcher() {
                             onClick={() => switchLanguage(locale.code)}
                             className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-800 transition ${
                                 locale.code === currentLocale
-                                    ? "text-blue-400 font-bold"
-                                    : "text-gray-300"
+                                    ? 'text-blue-400 font-bold'
+                                    : 'text-gray-300'
                             }`}
                         >
                             {locale.label}

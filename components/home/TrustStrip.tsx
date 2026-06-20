@@ -1,9 +1,9 @@
 export default function TrustStrip() {
     const stats = [
-        { value: "15+", label: "Years of Service" },
-        { value: "98%", label: "Client Retention" },
-        { value: "< 3min", label: "Avg. Response" },
-        { value: "24/7", label: "Global Coverage" },
+        { value: '15+', label: 'Years of Service' },
+        { value: '98%', label: 'Client Retention' },
+        { value: '< 3min', label: 'Avg. Response' },
+        { value: '24/7', label: 'Global Coverage' },
     ];
 
     return (

@@ -1,24 +1,24 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
-import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const pathname = usePathname();
 
     const navLinks = [
-        { href: "/", label: "Home" },
-        { href: "/services", label: "Services" },
-        { href: "/training", label: "Training" },
-        { href: "/about", label: "About" },
-        { href: "/contact", label: "Contact" },
+        { href: '/', label: 'Home' },
+        { href: '/services', label: 'Services' },
+        { href: '/training', label: 'Training' },
+        { href: '/about', label: 'About' },
+        { href: '/contact', label: 'Contact' },
     ];
 
     const isActive = (href: string) => {
-        if (href === "/") return pathname === href;
+        if (href === '/') return pathname === href;
         return pathname.startsWith(href);
     };
 
@@ -44,8 +44,8 @@ export default function Header() {
                                 href={link.href}
                                 className={`relative text-sm uppercase tracking-wide font-semibold transition duration-300 ${
                                     isActive(link.href)
-                                        ? "text-blue-500 after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-blue-500"
-                                        : "text-gray-300 hover:text-white"
+                                        ? 'text-blue-500 after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-blue-500'
+                                        : 'text-gray-300 hover:text-white'
                                 }`}
                             >
                                 {link.label}
@@ -94,8 +94,8 @@ export default function Header() {
                                 href={link.href}
                                 className={`block py-3 px-2 text-sm uppercase tracking-wide ${
                                     isActive(link.href)
-                                        ? "text-blue-500"
-                                        : "text-gray-300 hover:text-white"
+                                        ? 'text-blue-500'
+                                        : 'text-gray-300 hover:text-white'
                                 }`}
                                 onClick={() => setMobileMenuOpen(false)}
                             >

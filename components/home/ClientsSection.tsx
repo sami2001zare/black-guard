@@ -1,8 +1,8 @@
 const clients = [
-    "National Bank of Persia",
-    "Gulf Bridge Logistics",
-    "AriaTech Industries",
-    "Tehran Grand Hotel",
+    'National Bank of Persia',
+    'Gulf Bridge Logistics',
+    'AriaTech Industries',
+    'Tehran Grand Hotel',
 ];
 
 export default function ClientsSection() {

@@ -4,15 +4,11 @@ export default function Footer() {
             <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-3 gap-6 text-sm">
                     <div>
-                        <div className="text-white font-black text-xl mb-2">
-                            BLACK GUARD
-                        </div>
+                        <div className="text-white font-black text-xl mb-2">BLACK GUARD</div>
                         <p>Executive protection & tactical security</p>
                     </div>
                     <div>
-                        <h4 className="text-white font-semibold mb-2">
-                            Contact
-                        </h4>
+                        <h4 className="text-white font-semibold mb-2">Contact</h4>
                         <p>+98 21 12345 6789</p>
                         <p>ops@blackguard.com</p>
                     </div>
