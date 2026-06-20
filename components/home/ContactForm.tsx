@@ -16,7 +16,7 @@ interface FormErrors {
   message?: string;
 }
 
-// Simple SVG icons (inline to avoid extra dependencies)
+// SVG Icons (inline to avoid dependencies)
 const UserIcon = () => (
   <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -92,13 +92,21 @@ export default function ContactForm() {
     setSubmitError(false);
 
     try {
-      // Simulate API call - replace with actual endpoint
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      console.log("Form submitted:", formData);
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Failed to send");
+      }
+
       setSubmitted(true);
       setFormData({ name: "", email: "", phone: "", message: "" });
-    } catch (error) {
-      console.error("Submission error:", error);
+    } catch (err) {
+      console.error("Submission error:", err);
       setSubmitError(true);
     } finally {
       setIsSubmitting(false);
@@ -145,7 +153,7 @@ export default function ContactForm() {
               onClick={() => setSubmitted(false)}
               className="mt-4 text-blue-400 hover:text-blue-300 text-sm underline transition"
             >
-              {t("sendAnother") || "Send another request"}
+              {t("sendAnother") || "Send another message"}
             </button>
           </div>
         ) : (
@@ -164,9 +172,7 @@ export default function ContactForm() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className={`w-full bg-black border ${
-                      errors.name ? "border-red-500" : "border-gray-700"
-                    } p-3 pl-10 text-white placeholder-gray-500 focus:border-blue-500 outline-none transition rounded-sm`}
+                    className={`w-full bg-black border ${errors.name ? "border-red-500" : "border-gray-700"} p-3 pl-10 text-white placeholder-gray-500 focus:border-blue-500 outline-none transition rounded-sm`}
                   />
                   <span className="absolute left-3 top-1/2 -translate-y-1/2">
                     <UserIcon />
@@ -190,9 +196,7 @@ export default function ContactForm() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className={`w-full bg-black border ${
-                      errors.email ? "border-red-500" : "border-gray-700"
-                    } p-3 pl-10 text-white placeholder-gray-500 focus:border-blue-500 outline-none transition rounded-sm`}
+                    className={`w-full bg-black border ${errors.email ? "border-red-500" : "border-gray-700"} p-3 pl-10 text-white placeholder-gray-500 focus:border-blue-500 outline-none transition rounded-sm`}
                   />
                   <span className="absolute left-3 top-1/2 -translate-y-1/2">
                     <EmailIcon />
@@ -237,9 +241,7 @@ export default function ContactForm() {
                   required
                   value={formData.message}
                   onChange={handleChange}
-                  className={`w-full bg-black border ${
-                    errors.message ? "border-red-500" : "border-gray-700"
-                  } p-3 pl-10 text-white placeholder-gray-500 focus:border-blue-500 outline-none transition rounded-sm resize-none`}
+                  className={`w-full bg-black border ${errors.message ? "border-red-500" : "border-gray-700"} p-3 pl-10 text-white placeholder-gray-500 focus:border-blue-500 outline-none transition rounded-sm resize-none`}
                 />
                 <span className="absolute left-3 top-3">
                   <MessageIcon />

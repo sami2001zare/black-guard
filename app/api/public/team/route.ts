@@ -8,9 +8,10 @@ export async function GET() {
       orderBy: { order: 'asc' },
       include: { imageMedia: true },
     });
+
     return NextResponse.json(members);
   } catch (error) {
     console.error('Public team error:', error);
-    return NextResponse.json({ error: 'Failed to fetch team' }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to fetch team members' }, { status: 500 });
   }
 }

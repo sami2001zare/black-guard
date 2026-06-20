@@ -6,10 +6,10 @@ import Image from "next/image";
 import { useLocale } from "next-intl";
 
 const galleryImages = [
-  { src: "/gallery/event-1.jpg", alt: "Event security", altFa: "امنیت رویداد" },
-  { src: "/gallery/vip-protection.jpg", alt: "VIP protection", altFa: "حفاظت از شخصیت‌های مهم" },
-  { src: "/gallery/training-session.jpg", alt: "Training session", altFa: "جلسه تمرینی" },
-  { src: "/gallery/luxury-transfer.jpg", alt: "Luxury transfer", altFa: "ترانسفر لوکس" },
+  { src: "/image/gallery/pexels-orhan-boran-sahin-483147938-28288655.jpg", alt: "Event security", altFa: "امنیت رویداد" },
+  { src: "/image/gallery/pexels-orhan-boran-sahin-483147938-28288655.jpg", alt: "VIP protection", altFa: "حفاظت از شخصیت‌های مهم" },
+  { src: "/image/gallery/pexels-orhan-boran-sahin-483147938-28288655.jpg", alt: "Training session", altFa: "جلسه تمرینی" },
+  { src: "/image/gallery/pexels-orhan-boran-sahin-483147938-28288655.jpg", alt: "Luxury transfer", altFa: "ترانسفر لوکس" },
 ];
 
 export default function HomeGallery() {
@@ -78,27 +78,30 @@ export default function HomeGallery() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {galleryImages.map((img, idx) => (
-              <button
-                key={idx}
-                onClick={() => openModal(idx)}
-                className="group relative aspect-square overflow-hidden rounded-md border border-gray-800 hover:border-blue-500/50 transition focus:outline-none"
-                aria-label={isRtl ? img.altFa : img.alt}
-              >
-                <Image
-                  src={img.src}
-                  alt={isRtl ? img.altFa : img.alt}
-                  fill
-                  className="object-cover transition duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                  <span className="text-white text-sm font-semibold uppercase tracking-wide">
-                    {isRtl ? "بزرگنمایی" : "Enlarge"}
-                  </span>
-                </div>
-              </button>
-            ))}
-          </div>
+  {galleryImages.map((img, idx) => (
+    <button
+      key={idx}
+      onClick={() => openModal(idx)}
+      className="group relative aspect-square overflow-hidden rounded-md border border-gray-800 hover:border-blue-500/50 transition focus:outline-none"
+      aria-label={isRtl ? img.altFa : img.alt}
+    >
+      <Image
+        src={img.src}
+        alt={isRtl ? img.altFa : img.alt}
+        fill
+        loading="lazy"
+        className="object-cover transition duration-500 group-hover:scale-105"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+      />
+      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+        <span className="text-white text-sm font-semibold uppercase tracking-wide">
+          {isRtl ? "بزرگنمایی" : "Enlarge"}
+        </span>
+      </div>
+    </button>
+  ))}
+</div>
+
 
           <div className="text-center mt-10">
             <Link

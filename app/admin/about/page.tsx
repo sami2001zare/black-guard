@@ -87,7 +87,7 @@ export default function AboutPage() {
           <div className="p-6">
             <div className="flex items-start gap-6">
               {about.imageMedia ? (
-                <div className="relative w-32 h-32 rounded-lg overflow-hidden flex-shrink-0">
+                <div className="relative w-32 h-32 rounded-lg overflow-hidden shrink-0">
                   <Image
                     src={about.imageMedia.path}
                     alt={about.titleEn}
@@ -96,7 +96,7 @@ export default function AboutPage() {
                   />
                 </div>
               ) : (
-                <div className="w-32 h-32 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 text-xs flex-shrink-0">
+                <div className="w-32 h-32 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 text-xs shrink-0">
                   بدون تصویر
                 </div>
               )}

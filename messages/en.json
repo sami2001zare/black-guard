@@ -97,7 +97,8 @@
         "member3Cred": "Certified Firearms & Tactics Instructor",
         "member3Specialty": "Combat Training",
         "viewProfile": "View Profile",
-        "viewAllTeam": "View All Team Members"
+        "viewAllTeam": "View All Team Members",
+        "noImage": "No image"
     },
     "ClientsSection": {
         "title": "Trusted by leading organizations",
@@ -170,5 +171,10 @@
         "close": "Close",
         "previous": "Previous",
         "next": "Next"
+    },
+    "AboutPage": {
+        "title": "About Us",
+        "description": "Learn about Black Guard – your trusted security partner",
+        "defaultTitle": "About Us"
     }
 }

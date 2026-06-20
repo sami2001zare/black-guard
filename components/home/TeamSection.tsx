@@ -1,14 +1,33 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
+interface TeamMember {
+  id: string;
+  nameEn: string;
+  nameFa: string;
+  nameAr: string;
+  roleEn: string;
+  roleFa: string;
+  roleAr: string;
+  credEn: string;
+  credFa: string;
+  credAr: string;
+  imageMedia: { path: string } | null;
+  order: number;
+  published: boolean;
+}
+
 export default function TeamSection() {
   const t = useTranslations("TeamSection");
+  const [members, setMembers] = useState<TeamMember[]>([]);
+  const [loading, setLoading] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const locale = useLocale();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,11 +47,55 @@ export default function TeamSection() {
     return () => observer.disconnect();
   }, []);
 
-  const teamMembers = [
-    { id: "1", image: "/team/op-director.jpg", social: { linkedin: "#", twitter: "#" } },
-    { id: "2", image: "/team/intel-head.jpg", social: { linkedin: "#", twitter: "#" } },
-    { id: "3", image: "/team/training-commander.jpg", social: { linkedin: "#", twitter: "#" } },
-  ];
+  // Fetch team members
+  useEffect(() => {
+    const fetchTeam = async () => {
+      try {
+        const res = await fetch('/api/public/team');
+        if (res.ok) {
+          const data = await res.json();
+          setMembers(data);
+        }
+      } catch (error) {
+        console.error('Error fetching team:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTeam();
+  }, []);
+
+  const getLocalizedText = (member: TeamMember, field: 'name' | 'role' | 'cred') => {
+    if (locale === 'fa') {
+      return field === 'name' ? member.nameFa :
+             field === 'role' ? member.roleFa :
+             member.credFa;
+    } else if (locale === 'ar') {
+      return field === 'name' ? member.nameAr :
+             field === 'role' ? member.roleAr :
+             member.credAr;
+    }
+    return field === 'name' ? member.nameEn :
+           field === 'role' ? member.roleEn :
+           member.credEn;
+  };
+
+  if (loading) {
+    return (
+      <section className="py-24 bg-gray-950">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-center py-12">
+            <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (members.length === 0) {
+    return null;
+  }
 
   return (
     <section ref={sectionRef} className="py-24 bg-gray-950 relative overflow-hidden">
@@ -47,7 +110,7 @@ export default function TeamSection() {
         <div className="text-center mb-16">
           <div className="inline-block">
             <span className="text-blue-400 text-sm font-mono uppercase tracking-widest">
-              {t("badge") || "MEET THE TEAM"}
+              {t("badge")}
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-black uppercase text-white mt-3">
@@ -61,7 +124,7 @@ export default function TeamSection() {
 
         {/* Team Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {teamMembers.map((member, idx) => (
+          {members.map((member, idx) => (
             <div
               key={member.id}
               className={`
@@ -73,36 +136,25 @@ export default function TeamSection() {
             >
               {/* Image Container */}
               <div className="relative h-72 w-full overflow-hidden bg-gray-800">
-                <Image
-                  src={member.image}
-                  alt={t(`member${member.id}Name`)}
-                  fill
-                  className="object-cover transition duration-700 group-hover:scale-110"
-                />
+                {member.imageMedia ? (
+                  <Image
+                    src={member.imageMedia.path}
+                    alt={getLocalizedText(member, 'name')}
+                    fill
+                    className="object-cover transition duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gray-700 flex items-center justify-center text-gray-500">
+                    {t("noImage") || "No image"}
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60" />
-                
-                {/* Social Icons - Appear on Hover */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-3 opacity-0 group-hover:opacity-100 transition duration-300 translate-y-4 group-hover:translate-y-0">
-                  <Link
-                    href={member.social.linkedin}
-                    className="w-9 h-9 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center text-white text-sm transition"
-                    aria-label="LinkedIn"
-                  >
-                    in
-                  </Link>
-                  <Link
-                    href={member.social.twitter}
-                    className="w-9 h-9 bg-gray-700 hover:bg-blue-600 rounded-full flex items-center justify-center text-white text-sm transition"
-                    aria-label="Twitter"
-                  >
-                    tw
-                  </Link>
-                </div>
 
                 {/* Experience Badge */}
                 <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full border border-blue-500/30">
                   <span className="text-blue-400 text-xs font-mono">
-                    {t(`member${member.id}Cred`)}
+                    {getLocalizedText(member, 'cred')}
                   </span>
                 </div>
               </div>
@@ -110,22 +162,17 @@ export default function TeamSection() {
               {/* Content */}
               <div className="p-6 text-center">
                 <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition">
-                  {t(`member${member.id}Name`)}
+                  {getLocalizedText(member, 'name')}
                 </h3>
                 <p className="text-blue-400 text-sm font-medium mt-1">
-                  {t(`member${member.id}Role`)}
+                  {getLocalizedText(member, 'role')}
                 </p>
-                <div className="flex justify-center gap-2 mt-3">
-                  <span className="px-2 py-0.5 bg-gray-800 rounded text-gray-400 text-[10px] uppercase tracking-wider">
-                    {t(`member${member.id}Specialty`) || "Expert"}
-                  </span>
-                </div>
                 <div className="mt-4 pt-4 border-t border-gray-800">
                   <Link
                     href={`/team/${member.id}`}
                     className="text-blue-400 text-sm hover:text-blue-300 transition inline-flex items-center gap-1"
                   >
-                    {t("viewProfile") || "View Profile"}
+                    {t("viewProfile")}
                     <span className="inline-block transition group-hover:translate-x-1">→</span>
                   </Link>
                 </div>
@@ -140,7 +187,7 @@ export default function TeamSection() {
             href="/team"
             className="inline-flex items-center gap-2 text-gray-400 hover:text-white border border-gray-700 hover:border-blue-500 px-6 py-3 rounded-sm font-medium transition"
           >
-            {t("viewAllTeam") || "View All Team Members"}
+            {t("viewAllTeam")}
             <span className="text-blue-400">→</span>
           </Link>
         </div>

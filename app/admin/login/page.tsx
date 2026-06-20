@@ -43,7 +43,7 @@ export default function AdminLogin() {
     <div className="min-h-screen flex items-center justify-center bg-gray-50" dir="rtl">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-linear-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <span className="text-white text-2xl font-bold">ب</span>
           </div>
           <h1 className="text-2xl font-bold text-gray-800">ورود به پنل مدیریت</h1>

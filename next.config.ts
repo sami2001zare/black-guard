@@ -21,7 +21,7 @@ const nextConfig: NextConfig = {
       },
     ],
     // Configure allowed quality values
-    qualities: [75, 85, 90],
+    qualities: [75, 85, 90, 95],
   },
 };
 

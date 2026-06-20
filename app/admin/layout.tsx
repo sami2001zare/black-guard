@@ -159,7 +159,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
       >
         <div className="flex items-center justify-between h-16 px-6 border-b border-gray-200/80 shrink-0">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-sm">
+            <div className="w-8 h-8 rounded-lg bg-linear-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-sm">
               ب
             </div>
             <h1 className="text-lg font-bold text-gray-800">پنل مدیریت</h1>
@@ -186,7 +186,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                 className={`
                   flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-200
                   ${isActive
-                    ? "bg-gradient-to-r from-blue-50 to-blue-100/50 text-blue-700 shadow-sm"
+                    ? "bg-linear-to-r from-blue-50 to-blue-100/50 text-blue-700 shadow-sm"
                     : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
                   }
                 `}
@@ -253,7 +253,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                 <p className="text-sm font-medium text-gray-700">{user.name}</p>
                 <p className="text-[10px] text-gray-400">{user.role === 'admin' ? 'مدیر ارشد' : 'ویرایشگر'}</p>
               </div>
-              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-sm shadow-md shadow-blue-500/25">
+              <div className="w-9 h-9 rounded-full bg-linear-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-sm shadow-md shadow-blue-500/25">
                 {user.name.charAt(0)}
               </div>
             </div>

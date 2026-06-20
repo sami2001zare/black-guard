@@ -13,17 +13,17 @@ import HomeGallery from "@/components/home/HomeGallery";
 export default function Home() {
     return (
         <>
-            <Hero />
-            <TrustStrip />
-            <ServicesGrid />
-            <CeremonialServices /> {/* new */}
-            <TrainingSection />
-            <Testimonials />
+            {/* <Hero /> */}
+            {/* <TrustStrip /> */}
+            {/* <ServicesGrid /> */}
+            {/* <CeremonialServices /> */}
+            {/* <TrainingSection /> */}
+            {/* <Testimonials /> */}
             <TeamSection />
             <ClientsSection />
             <HomeGallery />        {/* new */}
-            <LicensesSection /> {/* new - trust builder */}
-            <ContactForm />
+            {/* <LicensesSection /> */}
+            {/* <ContactForm /> */}
         </>
     );
 }

@@ -3,13 +3,14 @@ import { prisma } from '@/lib/prisma';
 
 export async function GET() {
   try {
-    const about = await prisma.about.findUnique({
-      where: { id: 'about', published: true },
+    const about = await prisma.about.findFirst({
+      where: { published: true },
+      orderBy: { createdAt: 'desc' },
       include: { imageMedia: true },
     });
 
     if (!about) {
-      return NextResponse.json({ error: 'About content not found' }, { status: 404 });
+      return NextResponse.json({ error: 'No about content found' }, { status: 404 });
     }
 
     return NextResponse.json(about);
