@@ -274,9 +274,20 @@
         "scheduleButton": "View Schedule →",
         "title": "Forged in Combat. Refined for Protection."
     },
-     "NotFound": {
+    "NotFound": {
         "title": "Page Not Found",
         "description": "Oops! The page you are looking for does not exist or has been moved.",
         "backHome": "Back to Home"
+    },
+    "CeremonialServicePage": {
+        "title": "Ceremonial Service"
+    },
+    "CeremonialPage": {
+        "title": "Ceremonial Services",
+        "description": "Luxury travel, chauffeur services, and VIP transfers at the highest level",
+        "subtitle": "Experience travel and protocol at the highest level with our premium ceremonial services.",
+        "learnMore": "Learn More",
+        "noServices": "No ceremonial services available.",
+        "noImage": "No image"
     }
 }

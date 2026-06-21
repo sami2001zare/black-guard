@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { getTokenFromRequest, verifyToken } from '@/lib/auth';
+import { generateSlug } from '@/lib/utils';
 
 export async function GET(request: NextRequest) {
     // Authenticate
@@ -56,6 +57,13 @@ export async function POST(request: NextRequest) {
             );
         }
 
+        const slug = generateSlug(titleEn);
+        // Check if slug exists
+        const existing = await prisma.ceremonialService.findUnique({ where: { slug } });
+        if (existing) {
+            return NextResponse.json({ error: 'A service with this title already exists' }, { status: 400 });
+        }
+
         // Get max order
         const maxOrder = await prisma.ceremonialService.aggregate({
             _max: { order: true },
@@ -73,6 +81,7 @@ export async function POST(request: NextRequest) {
                 imageMediaId: imageMediaId || null,
                 order: nextOrder,
                 published: published !== undefined ? published : true,
+                slug
             },
         });
 

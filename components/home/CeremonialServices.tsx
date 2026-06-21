@@ -13,6 +13,7 @@ interface CeremonialService {
     descriptionEn: string;
     descriptionFa: string;
     descriptionAr: string;
+    slug: string; // ← Add this
     imageMedia: { path: string } | null;
     order: number;
     published: boolean;
@@ -125,7 +126,7 @@ export default function CeremonialServices() {
                                     {getPlainDescription(service)}
                                 </p>
                                 <Link
-                                    href="/ceremonial"
+                                    href={`/ceremonial/${service.slug}`}
                                     className="inline-flex items-center gap-1 text-blue-400 font-medium hover:text-blue-300 transition text-sm uppercase tracking-wide"
                                 >
                                     {t('learnMore')}

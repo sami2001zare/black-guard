@@ -150,6 +150,7 @@ model CeremonialService {
   descriptionEn String
   descriptionFa String
   descriptionAr String
+  slug        String   @unique   // ← new
   imageMediaId String?
   imageMedia  Media?   @relation(fields: [imageMediaId], references: [id])
   order       Int      @default(0)
@@ -157,6 +158,6 @@ model CeremonialService {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  @@index([order])
+  @@index([slug])
   @@index([published])
 }

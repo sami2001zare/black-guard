@@ -1,10 +1,59 @@
-# Package management
-**/packages/
-*.nupkg
-**/node_modules/
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Docker-related
+# Build outputs
+.next/
+out/
+dist/
+build/
+
+# Environment files
+.env
+.env*.local
+.env*.production
+*.env
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+
+# Docker
 Dockerfile
 .dockerignore
-docker-compose*
-*.dockerignore
+
+# Documentation
+README.md
+*.md
+AGENTS.md
+CLAUDE.md
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Misc
+*.tgz
+*.tar.gz
