@@ -29,13 +29,13 @@ export default function GalleryPage() {
     const fetchMedia = useCallback(async () => {
         setLoading(true);
         try {
-            const res = await fetch('/api/media'); // Use public endpoint
+            const res = await fetch('/api/media');
             if (res.ok) {
                 const data = await res.json();
                 // Ensure isGallery field exists (default to false)
-                const processed = data.map((item: any) => ({
+                const processed = data.map((item: MediaItem) => ({
                     ...item,
-                    isGallery: item.isGallery || false,
+                    isGallery: item.isGallery ?? false,
                 }));
                 setMedia(processed);
             } else {
@@ -49,6 +49,7 @@ export default function GalleryPage() {
     }, []);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         fetchMedia();
     }, [fetchMedia]);
 
@@ -116,7 +117,6 @@ export default function GalleryPage() {
         }
     };
 
-    // Toggle gallery status - requires a PATCH endpoint. If not implemented, skip.
     const handleToggleGallery = async (id: string, currentStatus: boolean) => {
         try {
             const res = await fetch('/api/media', {
@@ -139,7 +139,6 @@ export default function GalleryPage() {
         }
     };
 
-    // Bulk toggles - same issue, need PATCH endpoint
     const handleBulkToggleGallery = async (setTo: boolean) => {
         if (selectedIds.size === 0) {
             alert('لطفاً حداقل یک تصویر را انتخاب کنید.');

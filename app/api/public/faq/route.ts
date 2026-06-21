@@ -1,12 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { Prisma } from '@prisma/client';
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const category = searchParams.get('category');
 
-    const where: any = { published: true };
+    const where: Prisma.FaqWhereInput = { published: true };
     if (category) {
       where.category = category;
     }

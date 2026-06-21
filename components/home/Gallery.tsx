@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
@@ -49,17 +49,17 @@ export default function HomeGallery() {
         };
     }, [selectedIndex]);
 
-    const goPrev = () => {
+    const goPrev = useCallback(() => {
         if (selectedIndex !== null && images.length > 0) {
             setSelectedIndex((selectedIndex - 1 + images.length) % images.length);
         }
-    };
+    }, [selectedIndex, images.length]);
 
-    const goNext = () => {
+    const goNext = useCallback(() => {
         if (selectedIndex !== null && images.length > 0) {
             setSelectedIndex((selectedIndex + 1) % images.length);
         }
-    };
+    }, [selectedIndex, images.length]);
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
@@ -73,7 +73,7 @@ export default function HomeGallery() {
         };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [selectedIndex]);
+    }, [selectedIndex, goPrev, goNext]);
 
     const openModal = (index: number) => setSelectedIndex(index);
     const closeModal = () => setSelectedIndex(null);

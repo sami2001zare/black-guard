@@ -4,17 +4,19 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
+import { useTranslations } from 'next-intl';
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const pathname = usePathname();
+    const t = useTranslations('Header');
 
     const navLinks = [
-        { href: '/', label: 'Home' },
-        { href: '/services', label: 'Services' },
-        { href: '/training', label: 'Training' },
-        { href: '/about', label: 'About' },
-        { href: '/contact', label: 'Contact' },
+        { href: '/', label: t('home') },
+        { href: '/services', label: t('services') },
+        { href: '/training', label: t('training') },
+        { href: '/about', label: t('about') },
+        { href: '/contact', label: t('contact') },
     ];
 
     const isActive = (href: string) => {
