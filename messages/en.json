@@ -236,5 +236,34 @@
         "sendAnother": "Send another message",
         "errorMessage": "Something went wrong. Please try again.",
         "privacyNote": "Your information is encrypted and will never be shared with third parties."
+    },
+    "GalleryPage": {
+        "title": "Gallery",
+        "subtitle": "A collection of our work and moments",
+        "enlarge": "Enlarge",
+        "close": "Close",
+        "prev": "Previous",
+        "next": "Next",
+        "noImages": "No images available.",
+        "imageCount": "{count, plural, =1 {1 image} other {# images}}"
+    },
+    "FAQPage": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Find answers to common questions about our services",
+        "all": "All",
+        "category_general": "General",
+        "category_security": "Security",
+        "category_ceremonial": "Ceremonial",
+        "category_training": "Training",
+        "noFaqs": "No questions found."
+    },
+    "Gallery": {
+        "title": "Our Gallery",
+        "subtitle": "A selection of our recent work",
+        "enlarge": "Enlarge",
+        "viewAll": "View All Gallery",
+        "close": "Close",
+        "prev": "Previous",
+        "next": "Next"
     }
 }

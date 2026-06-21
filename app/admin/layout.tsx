@@ -157,12 +157,12 @@ interface NavItem {
 
 const navItems: NavItem[] = [
     { href: '/admin', label: 'داشبورد', icon: <DashboardIcon /> },
-    { href: '/admin/clients', label: 'مشتریان', icon: <UsersIcon /> },
+    // { href: '/admin/clients', label: 'مشتریان', icon: <UsersIcon /> },
     { href: '/admin/services', label: 'خدمات', icon: <ServicesIcon /> },
     { href: '/admin/team', label: 'تیم', icon: <UsersIcon /> },
     { href: '/admin/gallery', label: 'گالری', icon: <GalleryIcon /> },
-    { href: '/admin/messages', label: 'پیام‌ها', icon: <MessagesIcon />, badge: 5 },
-    { href: '/admin/settings', label: 'تنظیمات', icon: <SettingsIcon /> },
+    { href: '/admin/messages', label: 'پیام‌ها', icon: <MessagesIcon /> },
+    // { href: '/admin/settings', label: 'تنظیمات', icon: <SettingsIcon /> },
     { href: '/admin/faq', label: 'سوالات متداول', icon: <FaqIcon /> },
     { href: '/admin/about', label: 'درباره ما', icon: <AboutIcon /> },
     { href: '/admin/ceremonial', label: 'خدمات تشریفاتی', icon: <CeremonialIcon /> },
@@ -322,18 +322,9 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                                 />
                             </svg>
                         </button>
-
-                        <div className="hidden md:flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-lg text-gray-400">
-                            <SearchIcon />
-                            <input
-                                type="text"
-                                placeholder="جستجو..."
-                                className="bg-transparent border-none outline-none text-sm text-gray-700 w-40 placeholder-gray-400"
-                            />
-                        </div>
                     </div>
 
-                    <div className="flex items-center gap-3">
+                    {/* <div className="flex items-center gap-3">
                         <button className="relative p-2 text-gray-400 hover:text-gray-600 transition rounded-lg hover:bg-gray-100">
                             <BellIcon />
                             <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
@@ -350,7 +341,7 @@ function AdminLayoutContent({ children }: { children: React.ReactNode }) {
                                 {user.name.charAt(0)}
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </header>
 
                 <main className="flex-1 p-4 md:p-6">{children}</main>

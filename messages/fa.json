@@ -236,5 +236,34 @@
         "sendAnother": "ارسال پیام دیگر",
         "errorMessage": "خطایی رخ داد. لطفاً دوباره تلاش کنید.",
         "privacyNote": "اطلاعات شما رمزنگاری شده و هرگز با اشخاص ثالث به اشتراک گذاشته نمی‌شود."
+    },
+    "GalleryPage": {
+        "title": "گالری",
+        "subtitle": "مجموعه‌ای از کارها و لحظات ما",
+        "enlarge": "بزرگنمایی",
+        "close": "بستن",
+        "prev": "قبلی",
+        "next": "بعدی",
+        "noImages": "هیچ تصویری موجود نیست.",
+        "imageCount": "{count, plural, =1 {۱ تصویر} other {# تصویر}}"
+    },
+    "FAQPage": {
+        "title": "سوالات متداول",
+        "subtitle": "پاسخ سوالات رایج درباره خدمات ما را بیابید",
+        "all": "همه",
+        "category_general": "عمومی",
+        "category_security": "امنیتی",
+        "category_ceremonial": "تشریفاتی",
+        "category_training": "آموزشی",
+        "noFaqs": "هیچ سوالی یافت نشد."
+    },
+    "Gallery": {
+        "title": "گالری ما",
+        "subtitle": "گلچینی از کارهای اخیر ما",
+        "enlarge": "بزرگنمایی",
+        "viewAll": "مشاهده گالری کامل",
+        "close": "بستن",
+        "prev": "قبلی",
+        "next": "بعدی"
     }
 }

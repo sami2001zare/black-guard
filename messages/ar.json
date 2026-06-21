@@ -235,5 +235,34 @@
         "sendAnother": "إرسال رسالة أخرى",
         "errorMessage": "حدث خطأ. يرجى المحاولة مرة أخرى.",
         "privacyNote": "معلوماتك مشفرة ولن تتم مشاركتها مع أطراف ثالثة أبداً."
+    },
+    "GalleryPage": {
+        "title": "معرض الصور",
+        "subtitle": "مجموعة من أعمالنا ولحظاتنا",
+        "enlarge": "تكبير",
+        "close": "إغلاق",
+        "prev": "السابق",
+        "next": "التالي",
+        "noImages": "لا توجد صور متاحة.",
+        "imageCount": "{count, plural, =1 {صورة واحدة} other {# صور}}"
+    },
+    "FAQPage": {
+        "title": "الأسئلة الشائعة",
+        "subtitle": "اعثر على إجابات للأسئلة الشائعة حول خدماتنا",
+        "all": "الكل",
+        "category_general": "عام",
+        "category_security": "أمني",
+        "category_ceremonial": "تشريفي",
+        "category_training": "تدريبي",
+        "noFaqs": "لم يتم العثور على أسئلة."
+    },
+    "Gallery": {
+        "title": "معرض الصور",
+        "subtitle": "مجموعة مختارة من أعمالنا الأخيرة",
+        "enlarge": "تكبير",
+        "viewAll": "عرض المعرض الكامل",
+        "close": "إغلاق",
+        "prev": "السابق",
+        "next": "التالي"
     }
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
@@ -11,7 +11,6 @@ interface GalleryImage {
     filename: string;
     alt?: string | null;
     title?: string | null;
-    createdAt: string;
 }
 
 export default function HomeGallery() {
@@ -20,7 +19,6 @@ export default function HomeGallery() {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
     const t = useTranslations('Gallery');
 
-    // Fetch images from API
     useEffect(() => {
         const fetchImages = async () => {
             try {
@@ -39,7 +37,7 @@ export default function HomeGallery() {
         fetchImages();
     }, []);
 
-    // Lock body scroll when modal is open
+    // Lightbox logic (same as gallery page)
     useEffect(() => {
         if (selectedIndex !== null) {
             document.body.style.overflow = 'hidden';
@@ -51,38 +49,34 @@ export default function HomeGallery() {
         };
     }, [selectedIndex]);
 
-    const openModal = useCallback((index: number) => {
-        setSelectedIndex(index);
-    }, []);
-
-    const closeModal = useCallback(() => {
-        setSelectedIndex(null);
-    }, []);
-
-    const goPrev = useCallback(() => {
+    const goPrev = () => {
         if (selectedIndex !== null && images.length > 0) {
             setSelectedIndex((selectedIndex - 1 + images.length) % images.length);
         }
-    }, [selectedIndex, images.length]);
+    };
 
-    const goNext = useCallback(() => {
+    const goNext = () => {
         if (selectedIndex !== null && images.length > 0) {
             setSelectedIndex((selectedIndex + 1) % images.length);
         }
-    }, [selectedIndex, images.length]);
+    };
 
-    // Keyboard navigation
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (selectedIndex === null) return;
-            if (e.key === 'Escape') closeModal();
+            if (e.key === 'Escape') {
+                setSelectedIndex(null);
+                document.body.style.overflow = 'auto';
+            }
             if (e.key === 'ArrowLeft') goPrev();
             if (e.key === 'ArrowRight') goNext();
         };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [selectedIndex, closeModal, goPrev, goNext]);
+    }, [selectedIndex]);
 
+    const openModal = (index: number) => setSelectedIndex(index);
+    const closeModal = () => setSelectedIndex(null);
     const currentImage = selectedIndex !== null ? images[selectedIndex] : null;
 
     if (loading) {
@@ -95,9 +89,7 @@ export default function HomeGallery() {
         );
     }
 
-    if (images.length === 0) {
-        return null;
-    }
+    if (images.length === 0) return null;
 
     return (
         <>
@@ -111,7 +103,7 @@ export default function HomeGallery() {
                         <p className="text-gray-400 text-sm max-w-2xl mx-auto">{t('subtitle')}</p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                         {images.map((img, idx) => (
                             <button
                                 key={img.id}
@@ -124,7 +116,7 @@ export default function HomeGallery() {
                                     alt={img.alt || img.filename}
                                     fill
                                     className="object-cover transition duration-500 group-hover:scale-105"
-                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                                 />
                                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
                                     <span className="text-white text-sm font-semibold uppercase tracking-wide">
@@ -146,7 +138,7 @@ export default function HomeGallery() {
                 </div>
             </section>
 
-            {/* Lightbox Modal */}
+            {/* Lightbox Modal (same as gallery page) */}
             {selectedIndex !== null && currentImage && (
                 <div
                     className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md transition-opacity duration-300"
@@ -154,12 +146,11 @@ export default function HomeGallery() {
                 >
                     <button
                         onClick={closeModal}
-                        className="absolute top-4 right-4 z-10 text-white hover:text-blue-400 text-3xl font-bold transition focus:outline-none"
+                        className="absolute top-4 right-4 z-10 text-white hover:text-blue-400 text-3xl font-bold transition"
                         aria-label={t('close')}
                     >
                         ✕
                     </button>
-
                     <button
                         onClick={(e) => {
                             e.stopPropagation();
@@ -170,7 +161,6 @@ export default function HomeGallery() {
                     >
                         ❮
                     </button>
-
                     <button
                         onClick={(e) => {
                             e.stopPropagation();
@@ -181,11 +171,9 @@ export default function HomeGallery() {
                     >
                         ❯
                     </button>
-
                     <div className="absolute top-4 left-4 bg-black/60 text-white text-xs px-2 py-1 rounded-md z-10">
                         {selectedIndex + 1} / {images.length}
                     </div>
-
                     <div
                         className="relative max-w-5xl max-h-[90vh] w-full mx-4 cursor-default"
                         onClick={(e) => e.stopPropagation()}
@@ -196,7 +184,7 @@ export default function HomeGallery() {
                                 alt={currentImage.alt || currentImage.filename}
                                 fill
                                 className="object-contain"
-                                quality={95}
+                                quality={90}
                                 sizes="90vw"
                             />
                         </div>

@@ -56,7 +56,7 @@ export default function Hero() {
                             className="group relative bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-sm text-center uppercase tracking-wide transition shadow-lg shadow-blue-500/30 overflow-hidden"
                         >
                             <span className="relative z-10">{t('ctaPrimary')}</span>
-                            <span className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300" />
+                            <span className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
                         </Link>
                         <Link
                             href="#services"

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 export default function AdminLogin() {
@@ -9,7 +8,6 @@ export default function AdminLogin() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
-    const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -31,8 +29,8 @@ export default function AdminLogin() {
                 return;
             }
 
-            // Success
-            router.push('/admin');
+            // Success: redirect to admin with full page reload
+            window.location.href = '/admin';
         } catch {
             setError('خطای شبکه، لطفاً دوباره تلاش کنید');
             setLoading(false);
