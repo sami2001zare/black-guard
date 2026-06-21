@@ -273,5 +273,10 @@
         "nextCourse": "NEXT COURSE",
         "scheduleButton": "View Schedule →",
         "title": "Forged in Combat. Refined for Protection."
+    },
+     "NotFound": {
+        "title": "Page Not Found",
+        "description": "Oops! The page you are looking for does not exist or has been moved.",
+        "backHome": "Back to Home"
     }
 }
