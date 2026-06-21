@@ -1,0 +1,10 @@
+# Package management
+**/packages/
+*.nupkg
+**/node_modules/
+
+# Docker-related
+Dockerfile
+.dockerignore
+docker-compose*
+*.dockerignore
