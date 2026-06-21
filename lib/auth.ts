@@ -53,13 +53,13 @@ export function getTokenFromRequest(req: NextRequest): string | null {
 }
 
 // Get the token from the server-side cookies (for server components)
-export function getTokenFromServerCookies(): string | null {
-    const cookieStore = cookies();
+export async function getTokenFromServerCookies(): Promise<string | null> {
+    const cookieStore = await cookies();
     return cookieStore.get(COOKIE_NAME)?.value || null;
 }
 
 // Clear the auth cookie (logout)
-export function clearAuthCookie(): void {
-    const cookieStore = cookies();
+export async function clearAuthCookie(): Promise<void> {
+    const cookieStore = await cookies();
     cookieStore.delete(COOKIE_NAME);
 }

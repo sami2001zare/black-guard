@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import AboutForm from '@/components/admin/AboutForm';
 
 interface Props {
-    params: { id: string };
+    params: Promise<{ id: string }>;
 }
 
 export default async function EditAboutPage({ params }: Props) {
@@ -19,6 +19,7 @@ export default async function EditAboutPage({ params }: Props) {
 
     const serialized = {
         ...about,
+        // imageMediaId: about.imageMediaId || undefined,
         createdAt: about.createdAt.toISOString(),
         updatedAt: about.updatedAt.toISOString(),
     };

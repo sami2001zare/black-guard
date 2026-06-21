@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import CeremonialForm from '@/components/admin/CeremonialForm';
 
 interface Props {
-    params: { id: string };
+    params: Promise<{ id: string }>;
 }
 
 export default async function EditCeremonialPage({ params }: Props) {
@@ -19,6 +19,7 @@ export default async function EditCeremonialPage({ params }: Props) {
 
     const serialized = {
         ...service,
+        imageMediaId: service.imageMediaId || undefined,
         createdAt: service.createdAt.toISOString(),
         updatedAt: service.updatedAt.toISOString(),
     };

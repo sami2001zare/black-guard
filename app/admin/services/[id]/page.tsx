@@ -1,21 +1,28 @@
 import { prisma } from '@/lib/prisma';
-import ServiceForm from '@/components/admin/ServiceForm';
 import { notFound } from 'next/navigation';
+import ServiceForm from '@/components/admin/ServiceForm';
 
 interface Props {
-    params: { id: string };
+    params: Promise<{ id: string }>;
 }
 
 export default async function EditServicePage({ params }: Props) {
     const { id } = await params;
     const service = await prisma.service.findUnique({
         where: { id },
-        // include: { imageMedia: true },
+        include: { imageMedia: true },
     });
 
     if (!service) {
         notFound();
     }
 
-    return <ServiceForm id={id} initialData={service} />;
+    const serialized = {
+        ...service,
+        imageMediaId: service.imageMediaId || undefined,
+        createdAt: service.createdAt.toISOString(),
+        updatedAt: service.updatedAt.toISOString(),
+    };
+
+    return <ServiceForm id={id} initialData={serialized} />;
 }

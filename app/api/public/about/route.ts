@@ -6,7 +6,7 @@ export async function GET() {
     const about = await prisma.about.findFirst({
       where: { published: true },
       orderBy: { createdAt: 'desc' },
-      include: { imageMedia: true },
+    //   include: { imageMedia: true },
     });
 
     if (!about) {

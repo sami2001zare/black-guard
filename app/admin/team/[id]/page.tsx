@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import TeamMemberForm from '@/components/admin/TeamMemberForm';
 
 interface Props {
-    params: { id: string };
+    params: Promise<{ id: string }>;
 }
 
 export default async function EditTeamPage({ params }: Props) {
@@ -19,6 +19,8 @@ export default async function EditTeamPage({ params }: Props) {
 
     const serialized = {
         ...member,
+        // Convert null to undefined for optional fields
+        imageMediaId: member.imageMediaId || undefined,
         createdAt: member.createdAt.toISOString(),
         updatedAt: member.updatedAt.toISOString(),
     };
